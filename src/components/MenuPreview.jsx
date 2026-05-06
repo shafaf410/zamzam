@@ -26,7 +26,7 @@ const menuItems = [
     category: "Grills",
     title: "Mixed Grill Platter",
     price: "5.500",
-    image: "/images/GRILLS/MIXED GRILL.jpeg",
+    image: "/images/GRILLS/GRILLS - MIXED GRILL LARGE.png",
   },
   {
     id: 4,
