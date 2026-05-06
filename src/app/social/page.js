@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Instagram, Facebook, ArrowLeft, Share2 } from "lucide-react";
+import { Globe, Share2, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -56,7 +56,7 @@ export default function SocialPage() {
           >
             <div className="relative z-10">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                <Instagram className="text-white w-10 h-10" />
+                <Share2 className="text-white w-10 h-10" />
               </div>
               <h2 className="text-3xl font-luxury text-white mb-4">Instagram</h2>
               <p className="text-white/40 mb-8 leading-relaxed font-light">
@@ -81,7 +81,7 @@ export default function SocialPage() {
           >
             <div className="relative z-10">
               <div className="w-20 h-20 rounded-2xl bg-[#1877F2] flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                <Facebook className="text-white w-10 h-10" />
+                <Globe className="text-white w-10 h-10" />
               </div>
               <h2 className="text-3xl font-luxury text-white mb-4">Facebook</h2>
               <p className="text-white/40 mb-8 leading-relaxed font-light">
