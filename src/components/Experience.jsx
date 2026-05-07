@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-black-pure py-40 relative overflow-hidden">
+    <section id="experience" className="bg-transparent py-40 relative overflow-hidden">
       {/* Dynamic Background Effects */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-20">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-maroon/20 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3" />

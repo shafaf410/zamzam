@@ -17,13 +17,15 @@ export default function Home() {
       <LoadingScreen />
       <Navbar />
       <Hero />
-      <SignatureDishes />
-      <Experience />
-      <About />
-      <MenuPreview />
-      <Gallery />
-      <Reviews />
-      <Contact />
+      <div className="bg-site-theme">
+        <SignatureDishes />
+        <Experience />
+        <About />
+        <MenuPreview />
+        <Gallery />
+        <Reviews />
+        <Contact />
+      </div>
       <Footer />
       <WhatsAppButton />
     </main>

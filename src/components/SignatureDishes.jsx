@@ -33,7 +33,7 @@ const dishes = [
 
 const SignatureDishes = () => {
   return (
-    <section id="signature" className="py-32 bg-black-pure relative overflow-hidden">
+    <section id="signature" className="py-32 bg-transparent relative overflow-hidden">
       {/* Decorative Gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       

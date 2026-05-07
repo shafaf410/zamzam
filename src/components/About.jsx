@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-6 bg-black-soft bg-pattern relative">
+    <section id="about" className="py-24 px-6 bg-transparent relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row-reverse items-center gap-16">
           <div className="flex-1 relative">

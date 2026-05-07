@@ -26,7 +26,7 @@ const testimonials = [
 
 const Reviews = () => {
   return (
-    <section id="reviews" className="py-40 bg-black-pure relative overflow-hidden">
+    <section id="reviews" className="py-40 bg-transparent relative overflow-hidden">
       {/* Decorative Gold Rings */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gold/5 rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold/10 rounded-full pointer-events-none" />
