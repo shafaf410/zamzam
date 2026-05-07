@@ -37,62 +37,67 @@ const Navbar = () => {
           : "bg-transparent py-4"
       )}
     >
-      <div className="max-w-[1600px] mx-auto px-10 md:px-20 flex items-center justify-between">
-        {/* Left: Logo */}
+      <div className="w-full pl-2 md:pl-4 pr-4 md:pr-10 flex items-center">
+        {/* Left: Logo & Brand */}
         <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center gap-4">
-            <div className="relative w-12 h-12 md:w-16 md:h-16">
+          <Link href="/" className="group flex items-center gap-3">
+            <div className="relative w-14 h-14 md:w-18 md:h-18">
               <Image
-                src="/LOGO.jpeg"
+                src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
                 fill
-                className="object-contain rounded-full border-2 border-gold/40 group-hover:border-gold transition-luxury bg-maroon p-1 shadow-[0_0_15px_rgba(90,15,28,0.4)]"
+                className="object-contain transition-luxury drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:scale-110"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-luxury font-bold text-white tracking-[0.2em] leading-none">
+              <span className="text-lg md:text-xl font-luxury font-bold text-white tracking-[0.2em] leading-none">
                 ZAM ZAM
               </span>
-              <span className="text-[8px] font-sans font-bold text-gold tracking-[0.6em] mt-1">
+              <span className="text-[7px] font-sans font-bold text-gold tracking-[0.6em] mt-1">
                 MANDI
               </span>
             </div>
           </Link>
         </div>
 
-        {/* Right: Links */}
-        <div className="hidden lg:flex items-center gap-10">
+        {/* Center-Left: Main Navigation Links */}
+        <div className="hidden lg:flex items-center gap-10 ml-20">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[10px] font-bold tracking-[0.3em] text-white/70 hover:text-gold uppercase transition-luxury"
+              className="text-[10px] font-luxury font-medium tracking-[0.4em] text-white/50 hover:text-gold uppercase transition-luxury"
             >
               {link.name}
             </Link>
           ))}
           <Link
             href="/social"
-            className="text-[10px] font-bold tracking-[0.3em] text-gold hover:text-white uppercase transition-luxury border-l border-gold/20 pl-10"
+            className="text-[10px] font-luxury font-medium tracking-[0.4em] text-gold hover:text-white uppercase transition-luxury border-l border-white/5 pl-10 ml-2"
           >
             Social
           </Link>
-          <Link
-            href="https://wa.me/96800000000"
-            className="px-8 py-3 bg-maroon text-white rounded-full font-bold text-[8px] tracking-[0.2em] uppercase transition-luxury hover:bg-maroon-light ml-4"
-          >
-            Order Now
-          </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-white/80 hover:text-gold transition-colors"
-          onClick={() => setIsMobileMenuOpen(true)}
-        >
-          <Menu size={24} />
-        </button>
+        {/* Right: CTA & Mobile Menu Button */}
+        <div className="ml-auto flex items-center">
+          <div className="hidden lg:block">
+            <Link
+              href="https://wa.me/96800000000"
+              className="px-10 py-3.5 bg-maroon/20 hover:bg-maroon text-gold hover:text-white border border-gold/30 hover:border-maroon rounded-full font-bold text-[9px] tracking-[0.3em] uppercase transition-luxury"
+            >
+              Order Now
+            </Link>
+          </div>
+
+          <button
+            className="lg:hidden text-white/80 hover:text-gold transition-colors ml-4"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <Menu size={24} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Sidebar */}
@@ -125,7 +130,7 @@ const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-2xl font-luxury text-white hover:text-gold transition-colors tracking-[0.2em] uppercase"
+                    className="text-2xl font-luxury text-white hover:text-gold transition-colors tracking-[0.4em] uppercase"
                   >
                     {link.name}
                   </Link>
