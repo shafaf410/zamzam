@@ -19,12 +19,11 @@ export default function Home() {
       <LoadingScreen />
       <Navbar />
       <Hero />
+      <SignatureStickyScroll />
       <div className="bg-site-theme relative">
         <OrnamentalPattern className="opacity-10" />
         <FloatingShape type="circle" color="gold" delay={0} className="top-1/4 left-10" />
         <FloatingShape type="square" color="maroon" delay={2} className="top-3/4 right-10" />
-        
-        <SignatureStickyScroll />
         {/* We remove the divider here as the sticky scroll has its own transition */}
         
         <Experience />
