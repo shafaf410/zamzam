@@ -5,9 +5,9 @@ import React, { forwardRef } from 'react';
 const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props, ref) => {
   return (
     <ReactLenis root>
-      <main className='bg-black-pure m-0 p-0' ref={ref}>
+      <main className='bg-transparent m-0 p-0' ref={ref}>
         <div className='wrapper'>
-          <section className='text-white h-[60vh] w-full bg-black-pure flex flex-col items-center pt-32 sticky top-0 overflow-hidden'>
+          <section className='text-white h-[60vh] w-full bg-transparent flex flex-col items-center pt-32 sticky top-0 overflow-hidden'>
             {/* Background Pattern */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#d4af371a_1px,transparent_1px),linear-gradient(to_bottom,#d4af371a_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
@@ -26,7 +26,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
           </section>
         </div>
 
-        <section className='text-white w-full bg-black-pure pb-10'>
+        <section className='text-white w-full bg-transparent pb-10'>
           <div className='grid grid-cols-12 gap-4 px-4 md:px-8'>
             {/* Column 1 */}
             <div className='grid gap-2 col-span-4'>
