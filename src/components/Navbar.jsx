@@ -10,10 +10,15 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollProgress(scrolled);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,12 +36,14 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-luxury",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-700",
         isScrolled 
-          ? "bg-black-pure/95 backdrop-blur-2xl border-b border-gold/10 py-3 shadow-2xl" 
-          : "bg-transparent py-4"
+          ? "bg-black-pure/90 backdrop-blur-3xl border-b border-gold/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)]" 
+          : "bg-transparent py-5"
       )}
     >
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-maroon via-gold to-maroon transition-all duration-100 ease-out" style={{ width: `${scrollProgress}%` }} />
       <div className="w-full pl-2 md:pl-4 pr-4 md:pr-10 flex items-center">
         {/* Left: Logo & Brand */}
         <div className="flex-shrink-0">
@@ -67,9 +74,10 @@ const Navbar = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[10px] font-luxury font-medium tracking-[0.4em] text-white/50 hover:text-gold uppercase transition-luxury"
+              className="group relative text-[10px] font-luxury font-medium tracking-[0.4em] text-white/50 hover:text-gold uppercase transition-luxury overflow-hidden py-2"
             >
               {link.name}
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </Link>
           ))}
           <Link

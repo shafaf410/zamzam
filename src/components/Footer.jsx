@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Globe, Share2, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Phone, Globe, Share2, MessageCircle, ChevronUp, ArrowRight } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,10 +15,10 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="col-span-1 md:col-span-2 space-y-12">
             <Link href="/" className="group flex flex-col">
-              <span className="text-3xl font-luxury font-bold text-white tracking-[0.3em] leading-none">
+              <span className="text-4xl font-luxury font-bold text-gradient tracking-[0.3em] leading-none">
                 ZAM ZAM
               </span>
-              <span className="text-[10px] font-sans font-bold text-gold tracking-[0.7em] mt-3">
+              <span className="text-[10px] font-sans font-bold text-gold tracking-[0.8em] mt-4 opacity-70">
                 MANDI
               </span>
             </Link>
@@ -39,15 +39,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Newsletter / Subscription */}
           <div className="space-y-10">
-            <h4 className="text-white font-bold tracking-[0.3em] text-[10px] uppercase">The Collection</h4>
-            <div className="flex flex-col gap-6">
-              {["Signature Dishes", "Full Menu", "Experience", "Private Dining", "Gallery"].map((link) => (
-                <Link key={link} href="#" className="text-white/40 hover:text-gold transition-colors text-sm font-light">
-                  {link}
-                </Link>
-              ))}
+            <h4 className="text-white font-bold tracking-[0.3em] text-[10px] uppercase">Join Our Circle</h4>
+            <div className="space-y-6">
+              <p className="text-white/40 text-xs font-light leading-relaxed">
+                Subscribe to receive exclusive offers and culinary stories from our kitchen.
+              </p>
+              <div className="relative">
+                <input 
+                  type="email" 
+                  placeholder="Your Email Address" 
+                  className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-xs focus:outline-none focus:border-gold/30 transition-luxury"
+                />
+                <button className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-gold text-black-pure rounded-full flex items-center justify-center hover:scale-110 transition-luxury">
+                  <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -74,10 +82,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 relative">
           <p className="text-white/20 text-[10px] tracking-[0.2em] uppercase font-medium">
             &copy; 2024 Zam Zam Mandi. All Rights Reserved.
           </p>
+          
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            whileHover={{ y: -5 }}
+            className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-black-soft border border-gold/20 rounded-full flex items-center justify-center text-gold hover:bg-gold hover:text-black-pure transition-luxury shadow-gold"
+          >
+            <ChevronUp size={20} />
+          </motion.button>
+
           <div className="flex gap-12">
             <Link href="#" className="text-white/20 hover:text-gold text-[10px] tracking-[0.2em] uppercase transition-colors">Privacy Policy</Link>
             <Link href="#" className="text-white/20 hover:text-gold text-[10px] tracking-[0.2em] uppercase transition-colors">Terms of Service</Link>

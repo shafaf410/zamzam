@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Flame } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
@@ -22,6 +22,8 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black-pure">
+      {/* Dynamic Animated Gradient Background */}
+      <div className="absolute inset-0 z-0 opacity-30 bg-gradient-premium mix-blend-overlay" />
       {/* Immersive Background with Slow Zoom */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -55,27 +57,43 @@ const Hero = () => {
         
         {/* Atmospheric Vignette */}
         <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)] z-10 pointer-events-none" />
+        
+        {/* Decorative SVG Shapes */}
+        <div className="absolute inset-0 z-10 opacity-10 pointer-events-none">
+          <svg className="absolute top-20 left-20 w-32 h-32 text-gold animate-pulse" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
+          </svg>
+          <svg className="absolute bottom-20 right-20 w-48 h-48 text-amber animate-float" viewBox="0 0 100 100">
+            <rect x="10" y="10" width="80" height="80" fill="none" stroke="currentColor" strokeWidth="0.5" transform="rotate(45 50 50)" />
+          </svg>
+        </div>
       </div>
 
-      {/* Floating Spice Dust Particles */}
+      {/* Floating Spice Dust Particles (Enhanced) */}
       <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-        {[...Array(60)].map((_, i) => (
+        {[...Array(80)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-[2px] h-[2px] bg-gold/30 rounded-full"
+            className="absolute rounded-full"
+            style={{
+              width: Math.random() * 3 + 1 + "px",
+              height: Math.random() * 3 + 1 + "px",
+              background: i % 2 === 0 ? "var(--color-gold)" : "var(--color-orange-premium)",
+              boxShadow: "0 0 10px var(--color-gold)",
+            }}
             initial={{ 
               x: Math.random() * 100 + "%", 
               y: Math.random() * 100 + "%",
               opacity: 0
             }}
             animate={{ 
-              y: [null, (Math.random() - 0.5) * 400 + "px"],
-              x: [null, (Math.random() - 0.5) * 400 + "px"],
-              opacity: [0, 0.4, 0],
-              scale: [0, 1.5, 0]
+              y: [null, (Math.random() - 0.5) * 600 + "px"],
+              x: [null, (Math.random() - 0.5) * 600 + "px"],
+              opacity: [0, 0.6, 0],
+              scale: [0, 2, 0]
             }}
             transition={{ 
-              duration: Math.random() * 12 + 10, 
+              duration: Math.random() * 15 + 10, 
               repeat: Infinity, 
               ease: "linear",
               delay: Math.random() * 5
@@ -84,12 +102,25 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Hero Content: Centered Luxury Layout */}
+      {/* Decorative Side Flames */}
+      <div className="absolute left-10 top-1/2 -translate-y-1/2 z-30 hidden xl:block text-gold/20">
+        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }}>
+          <Flame size={120} strokeWidth={0.5} />
+        </motion.div>
+      </div>
+      <div className="absolute right-10 top-1/2 -translate-y-1/2 z-30 hidden xl:block text-gold/20">
+        <motion.div animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }}>
+          <Flame size={120} strokeWidth={0.5} />
+        </motion.div>
+      </div>
+
+      {/* Hero Content: Centered Luxury Layout with Glowing Border */}
       <div className="relative z-30 max-w-6xl mx-auto px-8 text-center pt-20">
+        <div className="absolute inset-0 glow-border -m-10 pointer-events-none opacity-20" />
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.span 
             initial={{ opacity: 0, letterSpacing: "0.2em" }}
