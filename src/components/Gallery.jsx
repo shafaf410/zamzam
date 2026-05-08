@@ -14,7 +14,7 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="py-40 bg-transparent">
+    <section id="gallery" className="py-10 bg-transparent">
       <div className="max-w-[1600px] mx-auto px-10">
         <div className="text-center mb-24">
           <span className="text-gold font-sans font-bold text-[10px] tracking-[0.5em] uppercase block mb-6">Visual Journey</span>

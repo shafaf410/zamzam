@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Share2, Globe, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="location" className="py-24 px-6 bg-transparent">
+    <section id="location" className="py-10 px-6 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Contact Details */}

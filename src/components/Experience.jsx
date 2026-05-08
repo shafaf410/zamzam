@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-transparent py-40 relative overflow-hidden">
+    <section id="experience" className="bg-transparent pt-10 pb-20 relative overflow-hidden">
       <CornerFlourish position="top-left" />
       <CornerFlourish position="bottom-right" />
       
