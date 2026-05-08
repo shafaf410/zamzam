@@ -7,7 +7,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
     <ReactLenis root>
       <main className='bg-transparent m-0 p-0' ref={ref}>
         <div className='wrapper'>
-          <section className='text-white h-[60vh] w-full bg-transparent flex flex-col items-center pt-32 sticky top-0 overflow-hidden'>
+          <section className='text-white h-[30vh] w-full bg-transparent flex flex-col items-center pt-20 sticky top-0 overflow-hidden'>
             {/* Background Pattern */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#d4af371a_1px,transparent_1px),linear-gradient(to_bottom,#d4af371a_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
@@ -15,9 +15,8 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               <span className="text-gold font-sans font-bold text-[10px] tracking-[0.5em] uppercase block mb-4 animate-pulse">
                 Culinary Masterpieces
               </span>
-              <h1 className='text-5xl md:text-7xl lg:text-8xl font-luxury font-medium text-white tracking-tight leading-[1.1]'>
-                Our Signature <br />
-                <span className="text-gold italic">Selections</span>
+              <h1 className='text-4xl md:text-6xl lg:text-7xl font-luxury font-medium text-white tracking-tight leading-[1.1]'>
+                Our Signature <span className="text-gold italic">Selections</span>
               </h1>
               <p className="text-white/40 text-sm md:text-base tracking-[0.2em] font-light uppercase">
                 Scroll to explore our heritage 👇
