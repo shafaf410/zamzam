@@ -120,14 +120,6 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
           </div>
         </section>
 
-        <footer className='group bg-black-pure border-t border-gold/10'>
-          <h1 className='text-[14vw] leading-[100%] uppercase font-luxury font-bold text-center bg-gradient-to-r from-gold via-white to-gold bg-clip-text text-transparent transition-all ease-linear opacity-20 group-hover:opacity-40 duration-700 py-10'>
-            ZAM ZAM
-          </h1>
-          <div className='bg-black-pure h-20 relative z-10 grid place-content-center rounded-tr-[100px] rounded-tl-[100px] border-t border-gold/5'>
-             <span className="text-gold/30 text-[10px] tracking-[1em] uppercase font-bold">Experience the Heritage</span>
-          </div>
-        </footer>
       </div>
     </ReactLenis>
   );
