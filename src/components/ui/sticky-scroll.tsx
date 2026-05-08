@@ -30,9 +30,9 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
           <div className='grid grid-cols-12 gap-4'>
             {/* Column 1 */}
             <div className='grid gap-4 col-span-12 md:col-span-4'>
-              <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-white/5 relative'>
                 <img
-                  src='https://images.unsplash.com/photo-1544124499-58912cbddaad?w=800&auto=format&fit=crop'
+                  src='/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg'
                   alt='Authentic Mandi'
                   className='transition-all duration-700 w-full h-[500px] align-bottom object-cover group-hover:scale-110'
                 />
@@ -42,22 +42,22 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=800&auto=format&fit=crop'
-                  alt='Roasted Chicken'
+                  src='/images/GRILLS/GRILLS - LAMB CHOPS.jpeg'
+                  alt='Premium Lamb Chops'
                   className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=800&auto=format&fit=crop'
+                  src='/images/spices_mandi.png'
                   alt='Arabian Spices'
                   className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1626700051175-656868edfb95?w=800&auto=format&fit=crop'
-                  alt='Mutton Specialties'
+                  src='/images/MANDI/HALF CHICKEN MADFOON WITH RICE.jpg'
+                  alt='Chicken Madfoon'
                   className='transition-all duration-700 w-full h-[450px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
@@ -67,22 +67,22 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
             <div className='sticky top-0 h-screen w-full col-span-12 md:col-span-4 gap-4 grid grid-rows-3 py-4'>
               <figure className='w-full h-full overflow-hidden rounded-2xl border border-gold/20 shadow-[0_0_30px_rgba(212,175,55,0.1)]'>
                 <img
-                  src='https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&auto=format&fit=crop'
+                  src='/images/GRILLS/GRILLS - MIXED GRILL LARGE.png'
                   alt='Signature Platter'
                   className='transition-all duration-700 h-full w-full align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full h-full overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1541518763669-279f00eddc9e?w=800&auto=format&fit=crop'
-                  alt='Traditional Dining'
+                  src='/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg'
+                  alt='Traditional Shuwa'
                   className='transition-all duration-700 h-full w-full align-bottom object-cover'
                 />
               </figure>
               <figure className='w-full h-full overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1601315379734-225510467b43?w=800&auto=format&fit=crop'
-                  alt='Arabic Dips'
+                  src='/images/mandi_plate_top.png'
+                  alt='Arabic Rice Specialty'
                   className='transition-all duration-700 h-full w-full align-bottom object-cover'
                 />
               </figure>
@@ -92,29 +92,29 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
             <div className='grid gap-4 col-span-12 md:col-span-4'>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?w=800&auto=format&fit=crop'
-                  alt='Premium BBQ'
+                  src='/images/GRILLS/GRILLS - CHICKEN TIKKA.jpeg'
+                  alt='Chicken Tikka'
                   className='transition-all duration-700 w-full h-[450px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=800&auto=format&fit=crop'
-                  alt='Chef at Work'
+                  src='/images/MANDI/HALF GRILLED CHICKEN WITH RICE.jpeg'
+                  alt='Grilled Chicken'
                   className='transition-all duration-700 w-full h-[550px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=800&auto=format&fit=crop'
-                  alt='Aromatic Rice'
+                  src='/images/GRILLS/GRILLS - MUTTON KEBAB.jpeg'
+                  alt='Mutton Kebab'
                   className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop'
-                  alt='The Feast'
+                  src='/images/grill_plate_top.png'
+                  alt='The Feast Platter'
                   className='transition-all duration-700 w-full h-[500px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
