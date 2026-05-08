@@ -102,21 +102,10 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Decorative Side Flames */}
-      <div className="absolute left-10 top-1/2 -translate-y-1/2 z-30 hidden xl:block text-gold/20">
-        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }}>
-          <Flame size={120} strokeWidth={0.5} />
-        </motion.div>
-      </div>
-      <div className="absolute right-10 top-1/2 -translate-y-1/2 z-30 hidden xl:block text-gold/20">
-        <motion.div animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }}>
-          <Flame size={120} strokeWidth={0.5} />
-        </motion.div>
-      </div>
 
       {/* Hero Content: Centered Luxury Layout with Glowing Border */}
       <div className="relative z-30 max-w-6xl mx-auto px-8 text-center pt-20">
-        <div className="absolute inset-0 glow-border -m-10 pointer-events-none opacity-20" />
+
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}

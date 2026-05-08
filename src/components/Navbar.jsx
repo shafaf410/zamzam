@@ -53,7 +53,7 @@ const Navbar = () => {
                 src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
                 fill
-                className="object-contain transition-luxury drop-shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:scale-110"
+                className="object-contain transition-luxury group-hover:scale-110"
                 priority
               />
             </div>
