@@ -23,7 +23,6 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </p>
             </div>
           </section>
-        </div>
 
         <section className='text-white w-full bg-black-pure px-4 md:px-8 pb-32'>
           <div className='grid grid-cols-12 gap-4'>
