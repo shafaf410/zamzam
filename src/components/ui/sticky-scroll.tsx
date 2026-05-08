@@ -26,8 +26,8 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
           </section>
         </div>
 
-        <section className='text-white w-full bg-black-pure'>
-          <div className='grid grid-cols-12 gap-2'>
+        <section className='text-white w-full bg-black-pure pb-40'>
+          <div className='grid grid-cols-12 gap-4 px-4 md:px-8'>
             {/* Column 1 */}
             <div className='grid gap-2 col-span-4'>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5 relative'>
@@ -49,8 +49,8 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='/images/spices_mandi.png'
-                  alt='Arabian Spices'
+                  src='/IMAGES/ChatGPT Image May 8, 2026, 05_14_35 PM.png'
+                  alt='Premium Arabian Spices'
                   className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
@@ -59,6 +59,13 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
                   src='/images/MANDI/HALF CHICKEN MADFOON WITH RICE.jpg'
                   alt='Chicken Madfoon'
                   className='transition-all duration-700 w-full h-[450px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
+                <img
+                  src='/images/GRILLS/GRILLS - LAMB CHOPS.jpeg'
+                  alt='Premium Lamb Chops'
+                  className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
             </div>
@@ -113,9 +120,16 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='/images/grill_plate_top.png'
+                  src='/images/GRILLS/GRILLS - MIXED GRILL LARGE.png'
                   alt='The Feast Platter'
                   className='transition-all duration-700 w-full h-[500px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
+                <img
+                  src='/images/shuwa_plate_top.png'
+                  alt='Shuwa Specialty'
+                  className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
             </div>
