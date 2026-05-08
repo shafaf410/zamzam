@@ -40,8 +40,8 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
-                  src='/images/GRILLS/GRILLS - LAMB CHOPS.jpeg'
-                  alt='Premium Lamb Chops'
+                  src='/images/MANDI/FULL CHICKEN MANDI WITH RICE_1.jpeg'
+                  alt='Premium Chicken Mandi'
                   className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
@@ -65,8 +65,8 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
             <div className='sticky top-0 h-screen w-full col-span-12 md:col-span-4 gap-4 grid grid-rows-3 py-4'>
               <figure className='w-full h-full overflow-hidden rounded-2xl border border-gold/20 shadow-[0_0_30px_rgba(212,175,55,0.1)]'>
                 <img
-                  src='/images/GRILLS/GRILLS - MIXED GRILL LARGE.png'
-                  alt='Signature Platter'
+                  src='/images/MANDI/grill_plate_top.png'
+                  alt='Signature Mandi Feast'
                   className='transition-all duration-700 h-full w-full align-bottom object-cover group-hover:scale-110'
                 />
               </figure>
