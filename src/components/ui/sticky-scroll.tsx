@@ -5,7 +5,8 @@ import React, { forwardRef } from 'react';
 const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props, ref) => {
   return (
     <ReactLenis root>
-      <div ref={ref}>
+      <main className='bg-black-pure' ref={ref}>
+        <div className='wrapper'>
           <section className='text-white h-screen w-full bg-black-pure grid place-content-center sticky top-0 overflow-hidden'>
             {/* Background Pattern */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#d4af371a_1px,transparent_1px),linear-gradient(to_bottom,#d4af371a_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
@@ -23,11 +24,12 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </p>
             </div>
           </section>
+        </div>
 
-        <section className='text-white w-full bg-black-pure px-4 md:px-8 pb-32'>
-          <div className='grid grid-cols-12 gap-4'>
+        <section className='text-white w-full bg-black-pure'>
+          <div className='grid grid-cols-12 gap-2'>
             {/* Column 1 */}
-            <div className='grid gap-4 col-span-12 md:col-span-4'>
+            <div className='grid gap-2 col-span-4'>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5 relative'>
                 <img
                   src='/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg'
@@ -62,7 +64,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
             </div>
 
             {/* Column 2 (Sticky) */}
-            <div className='sticky top-0 h-screen w-full col-span-12 md:col-span-4 gap-4 grid grid-rows-3 py-4'>
+            <div className='sticky top-0 h-screen w-full col-span-4 gap-2 grid grid-rows-3'>
               <figure className='w-full h-full overflow-hidden rounded-2xl border border-gold/20 shadow-[0_0_30px_rgba(212,175,55,0.1)]'>
                 <img
                   src='/images/MANDI/grill_plate_top.png'
@@ -87,7 +89,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
             </div>
 
             {/* Column 3 */}
-            <div className='grid gap-4 col-span-12 md:col-span-4'>
+            <div className='grid gap-2 col-span-4'>
               <figure className='w-full group overflow-hidden rounded-2xl border border-white/5'>
                 <img
                   src='/images/GRILLS/GRILLS - CHICKEN TIKKA.jpeg'
@@ -120,7 +122,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
           </div>
         </section>
 
-      </div>
+      </main>
     </ReactLenis>
   );
 });
