@@ -12,9 +12,6 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 // The SignatureStickyScroll is kept but will be updated to match the light theme
-const SignatureStickyScroll = dynamic(() => import("@/components/ui/sticky-scroll"), {
-  ssr: false,
-});
 
 export default function Home() {
   return (
@@ -30,7 +27,6 @@ export default function Home() {
         <EditorialStory />
         
         {/* Gallery Section with Updated Theme */}
-        <SignatureStickyScroll />
         
         {/* Other Sections */}
         <MenuPreview />
