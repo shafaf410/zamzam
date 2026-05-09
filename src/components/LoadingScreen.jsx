@@ -34,16 +34,16 @@ const LoadingScreen = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="text-4xl md:text-6xl font-luxury font-bold text-white tracking-[0.3em] text-center"
+              className="text-4xl md:text-6xl font-serif font-bold text-white tracking-widest text-center"
             >
-              ZAM ZAM <span className="text-gradient">MANDI</span>
+              ZAM ZAM <span className="text-maroon">MANDI</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-gold/50 text-[10px] uppercase tracking-[0.8em] mt-8 text-center"
+              className="text-gold/50 text-xs uppercase tracking-[0.5em] mt-6 text-center"
             >
               The Taste of Tradition
             </motion.p>

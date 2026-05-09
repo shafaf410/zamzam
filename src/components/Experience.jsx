@@ -1,16 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { CornerFlourish } from "./DecorativeElements";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
     <section id="experience" className="bg-transparent py-40 relative overflow-hidden">
-      <CornerFlourish position="top-left" />
-      <CornerFlourish position="bottom-right" />
-      
       {/* Dynamic Background Effects */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-20">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-maroon/20 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3" />
@@ -43,15 +38,9 @@ const Experience = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: 1, duration: 1 }}
-              className="absolute -bottom-10 -right-10 glass-effect p-10 border border-gold/20 rounded-2xl shadow-[0_0_50px_rgba(212,175,55,0.15)] hidden md:block"
+              className="absolute -bottom-10 -right-10 bg-black-soft/80 backdrop-blur-2xl p-10 border border-gold/20 rounded-2xl shadow-gold hidden md:block"
             >
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="text-gradient font-luxury text-7xl mb-2"
-              >
-                24h
-              </motion.div>
+              <div className="text-gold font-luxury text-6xl mb-2">24h</div>
               <div className="text-white/60 text-[10px] uppercase tracking-[0.4em] font-bold">
                 Slow-Cooking Heritage
               </div>
@@ -70,7 +59,7 @@ const Experience = () => {
               </motion.span>
               <h2 className="text-5xl md:text-7xl font-luxury text-white leading-tight">
                 Crafted with <br />
-                <span className="text-gradient italic">Ancient Secrets</span>
+                <span className="text-gold italic">Ancient Secrets</span>
               </h2>
             </div>
 
@@ -80,30 +69,20 @@ const Experience = () => {
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4">
                   <div className="w-10 h-[1px] bg-gold" />
                   <h4 className="text-white font-bold tracking-[0.2em] text-[10px] uppercase">Fire-Pit Heritage</h4>
-                  <p className="text-white/50 text-xs leading-relaxed italic">
-                    "Underground pit roasting that locks in flavor and moisture through 12-24 hours of slow cooking."
+                  <p className="text-white/50 text-xs leading-relaxed">
+                    Underground pit roasting that locks in flavor and moisture through 12-24 hours of slow cooking.
                   </p>
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="space-y-4"
-                >
+                </div>
+                <div className="space-y-4">
                   <div className="w-10 h-[1px] bg-gold" />
                   <h4 className="text-white font-bold tracking-[0.2em] text-[10px] uppercase">Spice Mastery</h4>
-                  <p className="text-white/50 text-xs leading-relaxed italic">
-                    "Hand-ground spices sourced from the traditional markets of Oman, blended with ancestral precision."
+                  <p className="text-white/50 text-xs leading-relaxed">
+                    Hand-ground spices sourced from the traditional markets of Oman, blended with ancestral precision.
                   </p>
-                </motion.div>
+                </div>
               </div>
             </div>
 

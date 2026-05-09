@@ -63,11 +63,11 @@ const MenuPreview = () => {
       <div className="max-w-[1600px] mx-auto px-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
           <div className="space-y-6">
-            <span className="text-brand-accent font-sans font-black text-[10px] tracking-[0.6em] uppercase block">
+            <span className="text-gold font-sans font-bold text-[10px] tracking-[0.5em] uppercase block">
               The Collection
             </span>
-            <h2 className="text-5xl md:text-7xl font-serif text-brand-primary">
-              Savor the <span className="text-brand-accent italic">Flavors</span>
+            <h2 className="text-5xl md:text-7xl font-luxury text-white">
+              Savor the <span className="text-gold italic">Flavors</span>
             </h2>
           </div>
 
@@ -77,15 +77,15 @@ const MenuPreview = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold transition-all duration-500 ${
-                  activeCategory === cat ? "text-brand-primary" : "text-brand-primary/30 hover:text-brand-primary"
+                className={`relative px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold transition-luxury ${
+                  activeCategory === cat ? "text-gold" : "text-white/40 hover:text-white"
                 }`}
               >
                 {cat}
                 {activeCategory === cat && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-accent"
+                    className="absolute bottom-0 left-0 w-full h-[1px] bg-gold"
                   />
                 )}
               </button>
@@ -95,40 +95,35 @@ const MenuPreview = () => {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="group bg-brand-light rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-700"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6 }}
+                className="group bg-black-soft border border-white/5 rounded-2xl overflow-hidden hover:border-gold/20 transition-luxury"
               >
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-all duration-[2s] ease-out group-hover:scale-110"
+                    className="object-cover transition-luxury duration-[1.5s] group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-brand-primary/10 group-hover:bg-transparent transition-all duration-700" />
+                  <div className="absolute inset-0 bg-black-pure/20 group-hover:bg-transparent transition-luxury" />
                 </div>
-                <div className="p-10 space-y-6">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="text-brand-accent text-[8px] font-black uppercase tracking-widest block mb-2">{item.category}</span>
-                      <h3 className="text-2xl font-serif text-brand-primary group-hover:text-brand-accent transition-colors duration-500">{item.title}</h3>
-                    </div>
-                    <span className="text-brand-primary font-bold text-lg">OMR {item.price}</span>
+                <div className="p-8 flex justify-between items-center">
+                  <div>
+                    <span className="text-gold/40 text-[8px] uppercase tracking-widest block mb-2">{item.category}</span>
+                    <h3 className="text-xl font-luxury text-white group-hover:text-gold transition-colors">{item.title}</h3>
                   </div>
-                  
-                  <div className="pt-4 border-t border-brand-muted flex justify-between items-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
-                    <span className="text-[9px] font-black tracking-widest text-brand-primary/40 uppercase">Details</span>
-                    <button className="text-brand-accent text-[9px] font-black tracking-widest uppercase">Add to Order +</button>
+                  <div className="text-right">
+                    <span className="text-gold font-bold text-lg">OMR {item.price}</span>
                   </div>
                 </div>
               </motion.div>

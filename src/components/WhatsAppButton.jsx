@@ -10,18 +10,15 @@ const WhatsAppButton = () => {
       target="_blank"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] border-2 border-white/20 cursor-pointer overflow-visible"
+      className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] cursor-pointer"
     >
-      <MessageCircle size={32} fill="white" />
+      <MessageCircle size={32} />
       
-      {/* Premium Gold Ring */}
-      <div className="absolute -inset-1 border border-gold/40 rounded-full animate-pulse" />
-      
-      {/* Refined Ripple Effect */}
+      {/* Ripple Effect */}
       <motion.div
-        animate={{ scale: [1, 2], opacity: [0.3, 0] }}
+        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute inset-0 rounded-full bg-[#25D366] -z-10"
       />
