@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SignatureStickyScroll from "@/components/ui/sticky-scroll";
+import SignatureDishes from "@/components/SignatureDishes";
 import Experience from "@/components/Experience";
 import MenuPreview from "@/components/MenuPreview";
 import About from "@/components/About";
@@ -24,8 +24,8 @@ export default function Home() {
         <FloatingShape type="circle" color="gold" delay={0} className="top-1/4 left-10" />
         <FloatingShape type="square" color="maroon" delay={2} className="top-3/4 right-10" />
         
-        <SignatureStickyScroll />
-        {/* We remove the divider here as the sticky scroll has its own transition */}
+        <SignatureDishes />
+        <SectionDivider type="wave" color="gold" className="-mt-10" />
         
         <Experience />
         <SectionDivider type="line" className="my-0" />

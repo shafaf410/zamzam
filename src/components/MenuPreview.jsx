@@ -59,7 +59,7 @@ const MenuPreview = () => {
     : menuItems.filter(item => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-10 bg-transparent relative">
+    <section id="menu" className="py-40 bg-transparent relative">
       <div className="max-w-[1600px] mx-auto px-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
           <div className="space-y-6">
