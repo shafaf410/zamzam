@@ -16,7 +16,7 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 8000);
+    }, 12000);
     return () => clearInterval(timer);
   }, [images.length]);
 
@@ -24,13 +24,13 @@ const Hero = () => {
     <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black-pure">
       {/* Immersive Background with Slow Zoom */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={currentImage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
+            transition={{ duration: 4, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
             <motion.div
