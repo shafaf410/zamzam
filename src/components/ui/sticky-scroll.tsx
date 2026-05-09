@@ -1,0 +1,145 @@
+'use client';
+import { ReactLenis } from 'lenis/react';
+import React, { forwardRef } from 'react';
+
+const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props, ref) => {
+  return (
+    <ReactLenis root>
+      <main className='bg-transparent m-0 p-0' ref={ref}>
+        <div className='wrapper'>
+          <section className='text-brand-primary h-[30vh] w-full bg-transparent flex flex-col items-center pt-20 sticky top-0 overflow-hidden'>
+            {/* Background Pattern */}
+            <div className='absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
+
+            <div className="relative z-10 text-center space-y-6">
+              <span className="text-brand-accent font-sans font-black text-[10px] tracking-[0.6em] uppercase block mb-4">
+                Culinary Masterpieces
+              </span>
+              <h1 className='text-4xl md:text-6xl lg:text-7xl font-serif font-medium text-brand-primary tracking-tight leading-[1.1]'>
+                Our Signature <span className="text-brand-accent italic">Selections</span>
+              </h1>
+              <p className="text-brand-primary/30 text-sm md:text-[10px] tracking-[0.4em] font-black uppercase">
+                Scroll to explore our heritage 👇
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <section className='text-brand-primary w-full bg-transparent pb-10'>
+          <div className='grid grid-cols-12 gap-4 px-4 md:px-8'>
+            {/* Column 1 */}
+            <div className='grid gap-2 col-span-4'>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700 relative'>
+                <img
+                  src='/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg'
+                  alt='Authentic Mandi'
+                  className='transition-all duration-700 w-full h-[500px] align-bottom object-cover group-hover:scale-110'
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black-pure to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-gold text-xs font-bold tracking-widest uppercase">Traditional Mandi</p>
+                </div>
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/MANDI/FULL CHICKEN MANDI WITH RICE_1.jpeg'
+                  alt='Premium Chicken Mandi'
+                  className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/IMAGES/ChatGPT Image May 8, 2026, 05_14_35 PM.png'
+                  alt='Premium Arabian Spices'
+                  className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/MANDI/HALF CHICKEN MADFOON WITH RICE.jpg'
+                  alt='Chicken Madfoon'
+                  className='transition-all duration-700 w-full h-[450px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/GRILLS/GRILLS - LAMB CHOPS.jpeg'
+                  alt='Premium Lamb Chops'
+                  className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+            </div>
+
+            {/* Column 2 (Sticky) */}
+            <div className='sticky top-0 h-screen w-full col-span-4 gap-2 grid grid-rows-3'>
+              <figure className='w-full h-full overflow-hidden rounded-[32px] border border-brand-accent/20 shadow-2xl'>
+                <img
+                  src='/images/MANDI/grill_plate_top.png'
+                  alt='Signature Mandi Feast'
+                  className='transition-all duration-700 h-full w-full align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full h-full overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg'
+                  alt='Traditional Shuwa'
+                  className='transition-all duration-700 h-full w-full align-bottom object-cover'
+                />
+              </figure>
+              <figure className='w-full h-full overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/mandi_plate_top.png'
+                  alt='Arabic Rice Specialty'
+                  className='transition-all duration-700 h-full w-full align-bottom object-cover'
+                />
+              </figure>
+            </div>
+
+            {/* Column 3 */}
+            <div className='grid gap-2 col-span-4'>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/GRILLS/GRILLS - CHICKEN TIKKA.jpeg'
+                  alt='Chicken Tikka'
+                  className='transition-all duration-700 w-full h-[450px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/MANDI/HALF GRILLED CHICKEN WITH RICE.jpeg'
+                  alt='Grilled Chicken'
+                  className='transition-all duration-700 w-full h-[550px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/GRILLS/GRILLS - MUTTON KEBAB.jpeg'
+                  alt='Mutton Kebab'
+                  className='transition-all duration-700 w-full h-[400px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/GRILLS/GRILLS - MIXED GRILL LARGE.png'
+                  alt='The Feast Platter'
+                  className='transition-all duration-700 w-full h-[500px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+              <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
+                <img
+                  src='/images/shuwa_plate_top.png'
+                  alt='Shuwa Specialty'
+                  className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </ReactLenis>
+  );
+});
+
+SignatureStickyScroll.displayName = 'SignatureStickyScroll';
+
+export default SignatureStickyScroll;
