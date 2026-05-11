@@ -85,7 +85,7 @@ const Hero = ({ onMenuClick }) => {
       </div>
 
       {/* Hero Content: Centered Luxury Layout */}
-      <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-10 md:pt-20">
+      <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-20 md:pt-32">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -105,7 +105,7 @@ const Hero = ({ onMenuClick }) => {
                     delay: 0.5 + i * 0.08,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className={`text-5xl md:text-8xl font-luxury tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/90 to-gold/50 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${letter === " " ? "mr-4 md:mr-6" : ""}`}
+                  className={`text-4xl md:text-7xl font-luxury tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/90 to-gold/50 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${letter === " " ? "mr-4 md:mr-6" : ""}`}
                 >
                   {letter}
                 </motion.span>
