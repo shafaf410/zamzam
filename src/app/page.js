@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SignatureDishes from "@/components/SignatureDishes";
+import MenuSection from "@/components/MenuSection";
 import Experience from "@/components/Experience";
 import About from "@/components/About";
 import Reviews from "@/components/Reviews";
@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <div className="bg-site-theme">
-        <SignatureDishes />
+        <MenuSection />
         <Experience />
         <About />
         <Reviews />

@@ -100,11 +100,6 @@ const Hero = () => {
             AUTHENTIC ARABIAN DINING
           </motion.span>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-luxury font-medium text-white leading-[1.1] mb-8 tracking-tight drop-shadow-2xl">
-            Experience the Taste of <br />
-            <span className="text-gold italic text-5xl md:text-7xl lg:text-8xl drop-shadow-[0_0_30px_rgba(212,175,55,0.3)] mt-4 block">Zam Zam Mandi</span>
-          </h1>
-          
           <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-lg italic opacity-90">
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>

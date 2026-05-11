@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/#about" },
+    { name: "About", href: "/about" },
     { name: "Menu", href: "/menu", isSpecial: true },
     { name: "Experience", href: "/#experience" },
     { name: "Contact", href: "/#location" },
@@ -89,9 +89,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="https://wa.me/96800000000"
-              className="px-10 py-3.5 bg-maroon text-white rounded-full font-sans font-bold text-[8px] tracking-[0.3em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/20 hover:shadow-2xl"
+              className="px-10 py-3.5 bg-gold text-black-pure rounded-full font-sans font-bold text-[8px] tracking-[0.3em] uppercase transition-luxury hover:bg-white hover:text-black-pure hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
             >
-              Reserve Table
+              Book a Table
             </Link>
           </div>
         </div>
@@ -148,9 +148,9 @@ const Navbar = () => {
                 <Link
                   href="https://wa.me/96800000000"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-12 px-16 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] hover:bg-maroon-light"
+                  className="mt-12 px-16 py-6 bg-gold text-black-pure rounded-full font-bold tracking-[0.5em] uppercase text-[10px] transition-luxury hover:bg-white hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
                 >
-                  Reserve Table
+                  Book a Table
                 </Link>
               </div>
 
