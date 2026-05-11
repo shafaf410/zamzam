@@ -68,7 +68,7 @@ const Navbar = ({ onMenuClick }) => {
                 <button
                   key={link.name}
                   onClick={onMenuClick}
-                  className="relative text-[9px] font-luxury font-medium tracking-[0.35em] text-white/80 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                  className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
@@ -77,7 +77,7 @@ const Navbar = ({ onMenuClick }) => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative text-[9px] font-luxury font-medium tracking-[0.35em] text-white/80 hover:text-gold uppercase transition-luxury group/link"
+                  className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
@@ -89,13 +89,13 @@ const Navbar = ({ onMenuClick }) => {
           <div className="flex items-center gap-6 ml-6 border-l border-white/10 pl-8">
             <Link
               href="/social"
-              className="text-[9px] font-luxury font-medium tracking-[0.35em] text-gold/80 hover:text-white uppercase transition-luxury"
+              className="text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-gold/80 hover:text-white uppercase transition-luxury"
             >
               Social
             </Link>
             <Link
               href="https://wa.me/96800000000"
-              className="px-8 py-3 bg-maroon text-white rounded-full font-sans font-bold text-[8px] tracking-[0.25em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/30 hover:scale-105 active:scale-95 shadow-lg"
+              className="px-10 py-4 bg-maroon text-white rounded-full font-sans font-bold text-[9px] md:text-[10px] tracking-[0.3em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/40 hover:scale-105 active:scale-95 shadow-xl"
             >
               Reserve Table
             </Link>
