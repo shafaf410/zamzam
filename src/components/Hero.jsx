@@ -85,12 +85,12 @@ const Hero = ({ onMenuClick }) => {
       </div>
 
       {/* Hero Content: Centered Luxury Layout */}
-      <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-20 md:pt-32">
+      <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-10 md:pt-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="mb-20 md:mb-24"
+          className="mb-10 md:mb-12"
         >
           {/* Main Cinematic Title: Two-Line Luxury Layout */}
           <div className="flex flex-col items-center justify-center mb-12 md:mb-16 relative">
@@ -157,7 +157,7 @@ const Hero = ({ onMenuClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-white/90 text-base md:text-lg mb-14 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-widest drop-shadow-2xl italic">
+          <p className="text-white/90 text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-widest drop-shadow-2xl italic">
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>
 
