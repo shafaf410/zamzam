@@ -92,12 +92,13 @@ const Hero = ({ onMenuClick }) => {
           transition={{ duration: 2 }}
           className="mb-20 md:mb-24"
         >
-          {/* Main Cinematic Title: Marcellus Font & Compact Size */}
-          <div className="flex flex-col items-center justify-center mb-10 md:mb-12 relative">
-            <div className="flex flex-wrap justify-center overflow-hidden pb-4">
-              {"ZAM ZAM MANDI".split("").map((letter, i) => (
+          {/* Main Cinematic Title: Two-Line Luxury Layout */}
+          <div className="flex flex-col items-center justify-center mb-12 md:mb-16 relative">
+            {/* Row 1: ZAM ZAM */}
+            <div className="flex justify-center overflow-hidden">
+              {"ZAM ZAM".split("").map((letter, i) => (
                 <motion.span
-                  key={i}
+                  key={`line1-${i}`}
                   initial={{ opacity: 0, y: 30, filter: "blur(10px)", scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
                   transition={{
@@ -105,7 +106,26 @@ const Hero = ({ onMenuClick }) => {
                     delay: 0.5 + i * 0.1,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className={`text-3xl md:text-6xl lg:text-[7rem] font-marcellus tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/90 to-gold/50 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${letter === " " ? "mr-4 md:mr-8" : ""}`}
+                  className={`text-4xl md:text-7xl lg:text-[8rem] font-marcellus tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/90 to-gold/50 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${letter === " " ? "mr-4 md:mr-8" : ""}`}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Row 2: MANDI */}
+            <div className="flex justify-center overflow-hidden -mt-4 md:-mt-8">
+              {"MANDI".split("").map((letter, i) => (
+                <motion.span
+                  key={`line2-${i}`}
+                  initial={{ opacity: 0, y: 30, filter: "blur(10px)", scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+                  transition={{
+                    duration: 2,
+                    delay: 1.2 + i * 0.1,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  className="text-2xl md:text-5xl lg:text-[5rem] font-marcellus tracking-[0.3em] md:tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-b from-gold/80 via-gold/60 to-gold/30 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
                 >
                   {letter}
                 </motion.span>
