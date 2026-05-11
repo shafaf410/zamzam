@@ -92,7 +92,7 @@ const Hero = ({ onMenuClick }) => {
           transition={{ duration: 2 }}
           className="mb-20 md:mb-24"
         >
-          {/* Main Cinematic Title: Increased Size & Cinzel Font */}
+          {/* Main Cinematic Title: Balanced Cinzel Font */}
           <div className="flex flex-col items-center justify-center mb-10 md:mb-12 relative">
             <div className="flex flex-wrap justify-center overflow-hidden pb-4">
               {"ZAM ZAM MANDI".split("").map((letter, i) => (
@@ -105,7 +105,7 @@ const Hero = ({ onMenuClick }) => {
                     delay: 0.5 + i * 0.1,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className={`text-5xl md:text-[9rem] lg:text-[11rem] font-cinzel font-black tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] ${letter === " " ? "mr-6 md:mr-12" : ""}`}
+                  className={`text-4xl md:text-7xl lg:text-[9rem] font-cinzel font-black tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] ${letter === " " ? "mr-6 md:mr-12" : ""}`}
                 >
                   {letter}
                 </motion.span>
