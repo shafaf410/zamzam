@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import HeroV3 from "@/components/HeroV3";
+import Hero from "@/components/Hero";
 import MenuSection from "@/components/MenuSection";
 import Experience from "@/components/Experience";
 import About from "@/components/About";
@@ -38,7 +38,7 @@ export default function Home() {
     <main className="relative bg-black-pure">
       <LoadingScreen />
       <Navbar onMenuClick={toggleMenu} />
-      <HeroV3 onMenuClick={toggleMenu} />
+      <Hero onMenuClick={toggleMenu} />
       
       <div className="bg-site-theme">
         <Experience />

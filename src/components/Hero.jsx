@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-const Hero = () => {
+const Hero = ({ onMenuClick }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
     "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg",
@@ -105,13 +105,13 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
-            <Link
-              href="#menu"
-              className="group relative px-14 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.4em] uppercase text-[10px] overflow-hidden transition-luxury hover:shadow-[0_0_50px_rgba(90,15,28,0.5)] hover:scale-105 active:scale-95"
+            <button
+              onClick={onMenuClick}
+              className="group relative px-14 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.4em] uppercase text-[10px] overflow-hidden transition-luxury hover:shadow-[0_0_50px_rgba(90,15,28,0.5)] hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span className="relative z-10">View Menu</span>
               <div className="absolute inset-0 bg-maroon-light translate-y-full group-hover:translate-y-0 transition-luxury" />
-            </Link>
+            </button>
             
             <Link
               href="https://wa.me/96800000000"
