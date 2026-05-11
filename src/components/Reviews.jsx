@@ -26,16 +26,16 @@ const testimonials = [
 
 const Reviews = () => {
   return (
-    <section id="reviews" className="py-40 bg-transparent relative overflow-hidden">
+    <section id="reviews" className="py-20 md:py-40 bg-transparent relative overflow-hidden">
       {/* Decorative Gold Rings */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gold/5 rounded-full pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold/10 rounded-full pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto px-10 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 relative z-10">
         <div className="text-center mb-24">
           <Quote className="text-gold w-16 h-16 mx-auto mb-10 opacity-30" />
           <span className="text-gold font-sans font-bold text-[10px] tracking-[0.5em] uppercase block mb-6">Guest Experiences</span>
-          <h2 className="text-5xl md:text-7xl font-luxury text-white">Words of <span className="text-gold italic">Distinction</span></h2>
+          <h2 className="text-4xl md:text-7xl font-luxury text-white">Words of <span className="text-gold italic">Distinction</span></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -45,7 +45,7 @@ const Reviews = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.2, duration: 1 }}
-              className="glass-dark p-12 rounded-3xl relative group hover:border-gold/30 transition-luxury"
+              className="glass-dark p-8 md:p-12 rounded-3xl relative group hover:border-gold/30 transition-luxury"
             >
               <div className="flex gap-1 mb-8">
                 {[...Array(review.rating)].map((_, i) => (

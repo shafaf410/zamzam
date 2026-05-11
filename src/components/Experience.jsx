@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-transparent py-40 relative overflow-hidden">
+    <section id="experience" className="bg-transparent py-20 md:py-40 relative overflow-hidden">
       {/* Dynamic Background Effects */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-20">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-maroon/20 blur-[150px] rounded-full translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/10 blur-[120px] rounded-full -translate-x-1/3 translate-y-1/3" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-10">
-        <div className="flex flex-col lg:flex-row items-center gap-24">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
           {/* Visual Storytelling (Left) */}
           <div className="w-full lg:w-1/2 relative">
             <motion.div
@@ -44,7 +44,7 @@ const Experience = () => {
               >
                 The Art of Tradition
               </motion.span>
-              <h2 className="text-5xl md:text-7xl font-luxury text-white leading-tight">
+              <h2 className="text-4xl md:text-7xl font-luxury text-white leading-tight">
                 Crafted with <br />
                 <span className="text-gold italic">Ancient Secrets</span>
               </h2>

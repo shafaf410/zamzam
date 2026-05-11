@@ -33,11 +33,11 @@ const dishes = [
 
 const SignatureDishes = () => {
   return (
-    <section id="signature" className="py-32 bg-transparent relative overflow-hidden">
+    <section id="signature" className="py-20 md:py-32 bg-transparent relative overflow-hidden">
       {/* Decorative Gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       
-      <div className="max-w-[1600px] mx-auto px-10">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
         <div className="text-center mb-24">
           <motion.span 
             initial={{ opacity: 0 }}
@@ -46,7 +46,7 @@ const SignatureDishes = () => {
           >
             Culinary Masterpieces
           </motion.span>
-          <h2 className="text-5xl md:text-7xl font-luxury text-white tracking-tight">
+          <h2 className="text-4xl md:text-7xl font-luxury text-white tracking-tight">
             Our Signature <span className="text-gold italic">Selections</span>
           </h2>
         </div>
@@ -62,7 +62,7 @@ const SignatureDishes = () => {
               className="group relative bg-black-soft border border-white/5 rounded-2xl overflow-hidden transition-luxury hover:border-gold/30 hover:shadow-gold"
             >
               {/* Image Container */}
-              <div className="relative h-[450px] overflow-hidden">
+              <div className="relative h-[300px] md:h-[450px] overflow-hidden">
                 <Image
                   src={dish.image}
                   alt={dish.title}

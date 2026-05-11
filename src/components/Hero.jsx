@@ -85,7 +85,7 @@ const Hero = ({ onMenuClick }) => {
       </div>
 
       {/* Hero Content: Centered Luxury Layout */}
-      <div className="relative z-30 max-w-6xl mx-auto px-8 text-center pt-20">
+      <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-10 md:pt-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const Hero = ({ onMenuClick }) => {
             initial={{ opacity: 0, letterSpacing: "0.2em" }}
             animate={{ opacity: 1, letterSpacing: "0.6em" }}
             transition={{ delay: 0.5, duration: 1.2 }}
-            className="block text-gold font-sans font-bold text-[10px] md:text-xs uppercase mb-14 tracking-[0.6em] text-glow-gold"
+            className="block text-gold font-sans font-bold text-[8px] md:text-xs uppercase mb-8 md:mb-14 tracking-[0.6em] text-glow-gold"
           >
             AUTHENTIC ARABIAN DINING
           </motion.span>
@@ -104,10 +104,10 @@ const Hero = ({ onMenuClick }) => {
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center justify-center">
             <button
               onClick={onMenuClick}
-              className="group relative px-14 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.4em] uppercase text-[10px] overflow-hidden transition-luxury hover:shadow-[0_0_50px_rgba(90,15,28,0.5)] hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto group relative px-10 md:px-14 py-4 md:py-6 bg-maroon text-white rounded-full font-bold tracking-[0.4em] uppercase text-[9px] md:text-[10px] overflow-hidden transition-luxury hover:shadow-[0_0_50px_rgba(90,15,28,0.5)] hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span className="relative z-10">View Menu</span>
               <div className="absolute inset-0 bg-maroon-light translate-y-full group-hover:translate-y-0 transition-luxury" />
@@ -115,7 +115,7 @@ const Hero = ({ onMenuClick }) => {
             
             <Link
               href="https://wa.me/96800000000"
-              className="group px-14 py-6 border border-gold/40 text-gold rounded-full font-bold tracking-[0.4em] uppercase text-[10px] transition-luxury hover:bg-gold/5 hover:border-gold glass-dark hover:-translate-y-1"
+              className="w-full sm:w-auto group px-10 md:px-14 py-4 md:py-6 border border-gold/40 text-gold rounded-full font-bold tracking-[0.4em] uppercase text-[9px] md:text-[10px] transition-luxury hover:bg-gold/5 hover:border-gold glass-dark hover:-translate-y-1 text-center"
             >
               Order Now
             </Link>

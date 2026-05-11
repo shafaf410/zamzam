@@ -39,8 +39,8 @@ const Navbar = ({ onMenuClick }) => {
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center gap-6">
-            <div className="relative w-14 h-14 md:w-18 md:h-18">
+          <Link href="/" className="group flex items-center gap-3 md:gap-6">
+            <div className="relative w-10 h-10 md:w-18 md:h-18">
               <Image
                 src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
@@ -50,10 +50,10 @@ const Navbar = ({ onMenuClick }) => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl md:text-3xl font-luxury font-medium text-white tracking-[0.3em] leading-none uppercase">
+              <span className="text-xl md:text-3xl font-luxury font-medium text-white tracking-[0.2em] md:tracking-[0.3em] leading-none uppercase">
                 Zam Zam
               </span>
-              <span className="text-[7px] font-sans font-black text-gold tracking-[0.8em] mt-1.5 uppercase opacity-80">
+              <span className="text-[6px] md:text-[7px] font-sans font-black text-gold tracking-[0.6em] md:tracking-[0.8em] mt-1 md:mt-1.5 uppercase opacity-80">
                 The Heritage Mandi
               </span>
             </div>

@@ -68,7 +68,7 @@ const Contact = () => {
           </div>
 
           {/* Embedded Map Container */}
-          <div className="lg:w-2/3 h-[500px] relative rounded-3xl overflow-hidden border border-gold/10 grayscale hover:grayscale-0 transition-all duration-700">
+          <div className="lg:w-2/3 h-[300px] md:h-[500px] relative rounded-3xl overflow-hidden border border-gold/10 grayscale hover:grayscale-0 transition-all duration-700">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14629.475141695773!2d58.4231889!3d23.5911466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e91ff60e7e17c8d%3A0x7d6f5f3e5c5c5c5c!2sAl%20Khuwair%2C%20Muscat!5e0!3m2!1sen!2som!4v1650000000000!5m2!1sen!2som" 
               width="100%" 
@@ -79,7 +79,7 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
             
-            <div className="absolute inset-0 pointer-events-none border-[20px] border-black-pure/50 md:border-[40px]" />
+            <div className="absolute inset-0 pointer-events-none border-[10px] md:border-[40px] border-black-pure/50" />
           </div>
         </div>
       </div>

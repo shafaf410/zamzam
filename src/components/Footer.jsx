@@ -6,12 +6,12 @@ import { Mail, MapPin, Phone, Globe, Share2, MessageCircle } from "lucide-react"
 
 const Footer = () => {
   return (
-    <footer className="bg-black-pure pt-40 pb-20 border-t border-gold/10 relative overflow-hidden">
+    <footer className="bg-black-pure pt-20 md:pt-40 pb-20 border-t border-gold/10 relative overflow-hidden">
       {/* Decorative Glow */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-maroon/5 blur-[150px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto px-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-24 mb-32">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-24 mb-16 md:mb-32">
           {/* Brand Info */}
           <div className="col-span-1 md:col-span-2 space-y-12">
             <Link href="/" className="group flex flex-col">
