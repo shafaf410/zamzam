@@ -32,19 +32,6 @@ const Experience = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-maroon/40 via-transparent to-transparent mix-blend-overlay" />
               <div className="absolute inset-0 bg-black-pure/20" />
             </motion.div>
-            
-            {/* Floating Statistic Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="absolute -bottom-10 -right-10 bg-black-soft/80 backdrop-blur-2xl p-10 border border-gold/20 rounded-2xl shadow-gold hidden md:block"
-            >
-              <div className="text-gold font-luxury text-6xl mb-2">24h</div>
-              <div className="text-white/60 text-[10px] uppercase tracking-[0.4em] font-bold">
-                Slow-Cooking Heritage
-              </div>
-            </motion.div>
           </div>
 
           {/* Text Storytelling (Right) */}
