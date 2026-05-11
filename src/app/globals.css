@@ -9,6 +9,7 @@
   
   --font-serif: var(--font-playfair);
   --font-luxury: var(--font-cormorant);
+  --font-cinzel: var(--font-cinzel);
   --font-sans: var(--font-inter);
 
   --animate-float: float 10s ease-in-out infinite;
