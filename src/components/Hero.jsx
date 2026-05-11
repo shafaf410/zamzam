@@ -92,20 +92,20 @@ const Hero = ({ onMenuClick }) => {
           transition={{ duration: 2 }}
           className="mb-20 md:mb-24"
         >
-          {/* Main Cinematic Title: ZAM ZAM */}
+          {/* Main Cinematic Title: ZAM ZAM MANDI */}
           <div className="flex flex-col items-center justify-center mb-8 relative">
             <div className="flex overflow-hidden pb-4">
-              {"ZAM ZAM".split("").map((letter, i) => (
+              {"ZAM ZAM MANDI".split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 50, filter: "blur(10px)", scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
                   transition={{
                     duration: 2.5,
-                    delay: 0.2 + i * 0.15,
+                    delay: 0.2 + i * 0.1,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className={`text-6xl md:text-9xl font-luxury tracking-[0.3em] md:tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_10px_20px_rgba(212,175,55,0.4)] ${letter === " " ? "mr-12 md:mr-20" : ""}`}
+                  className={`text-6xl md:text-9xl font-luxury tracking-[0.1em] md:tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_10px_20px_rgba(212,175,55,0.4)] ${letter === " " ? "mr-4 md:mr-8" : ""}`}
                 >
                   {letter}
                 </motion.span>
@@ -137,7 +137,7 @@ const Hero = ({ onMenuClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-lg italic opacity-90">
+          <p className="text-gold/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-lg italic opacity-90">
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>
 
