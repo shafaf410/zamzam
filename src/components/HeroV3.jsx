@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 
-const HeroV3 = () => {
+const HeroV3 = ({ onMenuClick }) => {
   return (
     <section id="home" className="relative h-screen w-full bg-brand-light overflow-hidden flex items-center justify-center px-6 md:px-12">
       <div className="container-editorial relative h-full w-full flex flex-col md:flex-row items-center justify-between py-24 md:py-32">
@@ -29,13 +29,13 @@ const HeroV3 = () => {
             </p>
             
             <div className="flex items-center gap-10">
-              <Link
-                href="#menu"
-                className="group relative overflow-hidden px-12 py-5 bg-brand-primary text-white rounded-full transition-all duration-700"
+              <button
+                onClick={onMenuClick}
+                className="group relative overflow-hidden px-12 py-5 bg-brand-primary text-white rounded-full transition-all duration-700 cursor-pointer"
               >
                 <span className="relative z-10 text-[10px] font-bold tracking-[0.3em] uppercase">The Collection</span>
                 <div className="absolute inset-0 bg-brand-accent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1]" />
-              </Link>
+              </button>
               
               <Link
                 href="#about"

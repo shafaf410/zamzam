@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const Navbar = () => {
+const Navbar = ({ onMenuClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -20,11 +20,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Menu", href: "/menu", isSpecial: true },
-    { name: "Experience", href: "/#experience" },
-    { name: "Contact", href: "/#location" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Menu", type: "button" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#location" },
   ];
 
   return (
@@ -39,21 +39,21 @@ const Navbar = () => {
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center gap-8">
-            <div className="relative w-20 h-20 md:w-24 md:h-24">
+          <Link href="/" className="group flex items-center gap-6">
+            <div className="relative w-14 h-14 md:w-18 md:h-18">
               <Image
                 src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
                 fill
-                className="object-contain transition-luxury drop-shadow-[0_0_20px_rgba(212,175,55,0.5)] group-hover:scale-110"
+                className="object-contain transition-luxury drop-shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-110"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-3xl md:text-4xl font-luxury font-medium text-white tracking-[0.3em] leading-none uppercase">
+              <span className="text-2xl md:text-3xl font-luxury font-medium text-white tracking-[0.3em] leading-none uppercase">
                 Zam Zam
               </span>
-              <span className="text-[8px] font-sans font-black text-gold tracking-[0.8em] mt-2 uppercase opacity-80">
+              <span className="text-[7px] font-sans font-black text-gold tracking-[0.8em] mt-1.5 uppercase opacity-80">
                 The Heritage Mandi
               </span>
             </div>
@@ -64,19 +64,25 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-12">
           <div className="flex items-center gap-10">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "relative text-[9px] font-luxury font-medium tracking-[0.4em] text-white/60 hover:text-gold uppercase transition-luxury group/link",
-                  link.isSpecial && "px-8 py-3.5 border border-gold/40 rounded-full text-gold bg-gold/5 hover:bg-gold hover:text-black transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.1)] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]"
-                )}
-              >
-                {link.name}
-                {!link.isSpecial && (
+              link.type === "button" ? (
+                <button
+                  key={link.name}
+                  onClick={onMenuClick}
+                  className="relative text-[9px] font-luxury font-medium tracking-[0.4em] text-white/60 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                >
+                  {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
-                )}
-              </Link>
+                </button>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="relative text-[9px] font-luxury font-medium tracking-[0.4em] text-white/60 hover:text-gold uppercase transition-luxury group/link"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                </Link>
+              )
             ))}
           </div>
 
@@ -89,19 +95,19 @@ const Navbar = () => {
             </Link>
             <Link
               href="https://wa.me/96800000000"
-              className="px-10 py-3.5 bg-gold text-black-pure rounded-full font-sans font-bold text-[8px] tracking-[0.3em] uppercase transition-luxury hover:bg-white hover:text-black-pure hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+              className="px-10 py-3.5 bg-maroon text-white rounded-full font-sans font-bold text-[8px] tracking-[0.3em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/20 hover:shadow-2xl"
             >
-              Book a Table
+              Reserve Table
             </Link>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-white/80 hover:text-gold transition-colors p-2"
+          className="lg:hidden text-white/80 hover:text-gold transition-colors"
           onClick={() => setIsMobileMenuOpen(true)}
         >
-          <Menu size={32} />
+          <Menu size={24} />
         </button>
       </div>
 
@@ -130,27 +136,37 @@ const Navbar = () => {
                 <X size={32} />
               </button>
               
-              <div className="flex flex-col gap-10 items-center text-center">
+              <div className="flex flex-col gap-12 items-center text-center">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={cn(
-                      "text-3xl font-luxury text-white/80 hover:text-gold transition-colors tracking-[0.3em] uppercase",
-                      link.isSpecial && "px-16 py-6 border-2 border-gold text-gold rounded-full bg-gold/5"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
+                  link.type === "button" ? (
+                    <button
+                      key={link.name}
+                      onClick={() => {
+                        onMenuClick();
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="text-3xl font-luxury text-white/80 hover:text-gold transition-colors tracking-[0.3em] uppercase cursor-pointer"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-3xl font-luxury text-white/80 hover:text-gold transition-colors tracking-[0.3em] uppercase"
+                    >
+                      {link.name}
+                    </Link>
+                  )
                 ))}
                 
                 <Link
                   href="https://wa.me/96800000000"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-12 px-16 py-6 bg-gold text-black-pure rounded-full font-bold tracking-[0.5em] uppercase text-[10px] transition-luxury hover:bg-white hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                  className="mt-12 px-16 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] hover:bg-maroon-light"
                 >
-                  Book a Table
+                  Reserve Table
                 </Link>
               </div>
 
