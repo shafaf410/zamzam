@@ -50,11 +50,11 @@ const Hero = ({ onMenuClick }) => {
         </AnimatePresence>
         
         {/* Advanced Cinematic Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black-pure/40 via-transparent to-black-pure/40 z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black-pure/60 via-transparent to-black-pure/60 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.8)_100%)] z-10" />
         
-        {/* Atmospheric Vignette */}
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)] z-10 pointer-events-none" />
+        {/* Atmospheric Vignette & Soft Blur */}
+        <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.9)] z-10 pointer-events-none" />
       </div>
 
       {/* Floating Spice Dust Particles */}
@@ -92,20 +92,20 @@ const Hero = ({ onMenuClick }) => {
           transition={{ duration: 2 }}
           className="mb-20 md:mb-24"
         >
-          {/* Main Cinematic Title: ZAM ZAM MANDI */}
-          <div className="flex flex-col items-center justify-center mb-8 relative">
-            <div className="flex overflow-hidden pb-4">
+          {/* Main Cinematic Title: Balanced Size */}
+          <div className="flex flex-col items-center justify-center mb-10 md:mb-12 relative">
+            <div className="flex flex-wrap justify-center overflow-hidden pb-4">
               {"ZAM ZAM MANDI".split("").map((letter, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, y: 50, filter: "blur(10px)", scale: 0.8 }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(10px)", scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
                   transition={{
-                    duration: 2.5,
-                    delay: 0.2 + i * 0.1,
+                    duration: 2,
+                    delay: 0.5 + i * 0.08,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                  className={`text-6xl md:text-9xl font-luxury tracking-[0.1em] md:tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_10px_20px_rgba(212,175,55,0.4)] ${letter === " " ? "mr-4 md:mr-8" : ""}`}
+                  className={`text-5xl md:text-8xl font-luxury tracking-[0.1em] md:tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/90 to-gold/50 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${letter === " " ? "mr-4 md:mr-6" : ""}`}
                 >
                   {letter}
                 </motion.span>
@@ -137,14 +137,14 @@ const Hero = ({ onMenuClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-gold/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-lg italic opacity-90">
+          <p className="text-gold/70 text-base md:text-lg mb-14 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-widest drop-shadow-2xl italic opacity-80">
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 md:gap-10 items-center justify-center">
             <button
               onClick={onMenuClick}
-              className="w-full sm:w-auto group relative px-10 md:px-14 py-4 md:py-6 bg-maroon text-white rounded-full font-bold tracking-[0.4em] uppercase text-[9px] md:text-[10px] overflow-hidden transition-luxury hover:shadow-[0_0_50px_rgba(90,15,28,0.5)] hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto group relative px-12 py-5 bg-maroon text-white rounded-full font-bold tracking-[0.3em] uppercase text-[9px] overflow-hidden transition-luxury hover:bg-maroon-light hover:shadow-[0_0_30px_rgba(90,15,28,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span className="relative z-10">View Menu</span>
               <div className="absolute inset-0 bg-maroon-light translate-y-full group-hover:translate-y-0 transition-luxury" />
@@ -152,7 +152,7 @@ const Hero = ({ onMenuClick }) => {
             
             <Link
               href="https://wa.me/96800000000"
-              className="w-full sm:w-auto group px-10 md:px-14 py-4 md:py-6 border border-gold/40 text-gold rounded-full font-bold tracking-[0.4em] uppercase text-[9px] md:text-[10px] transition-luxury hover:bg-gold/5 hover:border-gold glass-dark hover:-translate-y-1 text-center"
+              className="w-full sm:w-auto group px-12 py-5 border border-gold/30 text-gold/90 rounded-full font-bold tracking-[0.3em] uppercase text-[9px] transition-luxury hover:bg-gold/5 hover:border-gold glass-dark hover:scale-105 active:scale-95 text-center"
             >
               Order Now
             </Link>

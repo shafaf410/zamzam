@@ -37,38 +37,38 @@ const Navbar = ({ onMenuClick }) => {
       )}
     >
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Left: Logo */}
+        {/* Left: Logo & Branding Grouped Tighter */}
         <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center gap-3 md:gap-6">
-            <div className="relative w-10 h-10 md:w-18 md:h-18">
+          <Link href="/" className="group flex items-center gap-3 md:gap-4">
+            <div className="relative w-10 h-10 md:w-14 md:h-14">
               <Image
                 src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
                 fill
-                className="object-contain transition-luxury drop-shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-110"
+                className="object-contain transition-luxury drop-shadow-[0_0_15px_rgba(212,175,55,0.4)] group-hover:scale-105"
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl md:text-3xl font-luxury font-medium text-white tracking-[0.2em] md:tracking-[0.3em] leading-none uppercase">
+            <div className="flex flex-col -space-y-0.5">
+              <span className="text-lg md:text-2xl font-luxury font-medium text-white tracking-[0.15em] md:tracking-[0.2em] leading-none uppercase">
                 Zam Zam
               </span>
-              <span className="text-[6px] md:text-[7px] font-sans font-black text-gold tracking-[0.6em] md:tracking-[0.8em] mt-1 md:mt-1.5 uppercase opacity-80">
+              <span className="text-[5px] md:text-[6px] font-sans font-black text-gold tracking-[0.5em] md:tracking-[0.7em] mt-1 uppercase opacity-70">
                 The Heritage Mandi
               </span>
             </div>
           </Link>
         </div>
 
-        {/* Right: Links */}
-        <div className="hidden lg:flex items-center gap-12">
-          <div className="flex items-center gap-10">
+        {/* Right: Links with Improved Hierarchy & Spacing */}
+        <div className="hidden lg:flex items-center gap-10">
+          <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               link.type === "button" ? (
                 <button
                   key={link.name}
                   onClick={onMenuClick}
-                  className="relative text-[9px] font-luxury font-medium tracking-[0.4em] text-white/60 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                  className="relative text-[9px] font-luxury font-medium tracking-[0.35em] text-white/80 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
@@ -77,7 +77,7 @@ const Navbar = ({ onMenuClick }) => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative text-[9px] font-luxury font-medium tracking-[0.4em] text-white/60 hover:text-gold uppercase transition-luxury group/link"
+                  className="relative text-[9px] font-luxury font-medium tracking-[0.35em] text-white/80 hover:text-gold uppercase transition-luxury group/link"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
@@ -86,16 +86,16 @@ const Navbar = ({ onMenuClick }) => {
             ))}
           </div>
 
-          <div className="flex items-center gap-8 ml-8 border-l border-white/10 pl-8">
+          <div className="flex items-center gap-6 ml-6 border-l border-white/10 pl-8">
             <Link
               href="/social"
-              className="text-[9px] font-luxury font-medium tracking-[0.4em] text-gold hover:text-white uppercase transition-luxury"
+              className="text-[9px] font-luxury font-medium tracking-[0.35em] text-gold/80 hover:text-white uppercase transition-luxury"
             >
               Social
             </Link>
             <Link
               href="https://wa.me/96800000000"
-              className="px-10 py-3.5 bg-maroon text-white rounded-full font-sans font-bold text-[8px] tracking-[0.3em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/20 hover:shadow-2xl"
+              className="px-8 py-3 bg-maroon text-white rounded-full font-sans font-bold text-[8px] tracking-[0.25em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/30 hover:scale-105 active:scale-95 shadow-lg"
             >
               Reserve Table
             </Link>
