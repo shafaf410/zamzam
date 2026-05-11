@@ -114,7 +114,7 @@ const Hero = ({ onMenuClick }) => {
             </div>
 
             {/* Row 2: MANDI */}
-            <div className="flex justify-center overflow-hidden -mt-4 md:-mt-8">
+            <div className="flex justify-center overflow-hidden mt-2 md:mt-4">
               {"MANDI".split("").map((letter, i) => (
                 <motion.span
                   key={`line2-${i}`}
