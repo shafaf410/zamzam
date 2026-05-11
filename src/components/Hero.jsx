@@ -137,15 +137,6 @@ const Hero = ({ onMenuClick }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.span 
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={{ opacity: 1, letterSpacing: "0.6em" }}
-            transition={{ delay: 3, duration: 1.2 }}
-            className="block text-gold font-sans font-bold text-[8px] md:text-xs uppercase mb-8 md:mb-14 tracking-[0.6em] text-glow-gold"
-          >
-            AUTHENTIC ARABIAN DINING
-          </motion.span>
-          
           <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-lg italic opacity-90">
             "Slow-cooked Arabian mandi and traditional shuwa <br className="hidden md:block" /> crafted with authentic spices and rich flavors."
           </p>
