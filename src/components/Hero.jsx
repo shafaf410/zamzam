@@ -87,14 +87,60 @@ const Hero = ({ onMenuClick }) => {
       {/* Hero Content: Centered Luxury Layout */}
       <div className="relative z-30 max-w-6xl mx-auto px-6 md:px-8 text-center pt-10 md:pt-20">
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="mb-20 md:mb-24"
+        >
+          {/* Main Cinematic Title: ZAM ZAM */}
+          <div className="flex flex-col items-center justify-center mb-8 relative">
+            <div className="flex overflow-hidden pb-4">
+              {"ZAM ZAM".split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 50, filter: "blur(10px)", scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+                  transition={{
+                    duration: 2.5,
+                    delay: 0.2 + i * 0.15,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  className={`text-6xl md:text-9xl font-luxury tracking-[0.3em] md:tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold/80 to-gold/40 drop-shadow-[0_10px_20px_rgba(212,175,55,0.4)] ${letter === " " ? "mr-12 md:mr-20" : ""}`}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Ambient Glow behind title */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: [0, 0.4, 0.2] }}
+              transition={{ duration: 4, delay: 1 }}
+              className="absolute inset-0 bg-gold/10 blur-[100px] rounded-full -z-10"
+            />
+
+            {/* Tagline: World's Favourite Mandi */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, letterSpacing: "0.4em" }}
+              animate={{ opacity: 1, y: 0, letterSpacing: "0.8em" }}
+              transition={{ delay: 2, duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-gold/60 font-sans font-medium text-[10px] md:text-xs uppercase tracking-[0.8em] text-glow-gold mt-6"
+            >
+              World's Favourite Mandi
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.span 
             initial={{ opacity: 0, letterSpacing: "0.2em" }}
             animate={{ opacity: 1, letterSpacing: "0.6em" }}
-            transition={{ delay: 0.5, duration: 1.2 }}
+            transition={{ delay: 3, duration: 1.2 }}
             className="block text-gold font-sans font-bold text-[8px] md:text-xs uppercase mb-8 md:mb-14 tracking-[0.6em] text-glow-gold"
           >
             AUTHENTIC ARABIAN DINING
