@@ -97,7 +97,7 @@ const Navbar = ({ onMenuClick }) => {
               href="https://wa.me/96800000000"
               className="px-10 py-4 bg-maroon text-white rounded-full font-sans font-bold text-[9px] md:text-[10px] tracking-[0.3em] uppercase transition-luxury hover:bg-maroon-light hover:shadow-gold/40 hover:scale-105 active:scale-95 shadow-xl"
             >
-              Reserve Table
+              Order
             </Link>
           </div>
         </div>
@@ -166,7 +166,7 @@ const Navbar = ({ onMenuClick }) => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-12 px-16 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] hover:bg-maroon-light"
                 >
-                  Reserve Table
+                  Order
                 </Link>
               </div>
 
