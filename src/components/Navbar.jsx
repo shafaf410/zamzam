@@ -20,11 +20,11 @@ const Navbar = ({ onMenuClick }) => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Menu", type: "button" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#location" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Contact", href: "/#location" },
   ];
 
   return (
