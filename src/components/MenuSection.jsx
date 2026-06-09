@@ -57,8 +57,8 @@ const MenuSection = () => {
         </div>
 
         {/* Sticky Category Navigation */}
-        <div className="sticky top-20 z-40 bg-maroon-dark/95 backdrop-blur-md py-3 sm:py-4 mb-8 -mx-4 px-4 sm:mx-0 sm:px-6 sm:rounded-full border-y sm:border border-white/5 shadow-2xl">
-          <ul className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
+        <div className="sticky top-20 z-40 bg-maroon-dark/95 backdrop-blur-md py-3 sm:py-4 mb-8 -mx-4 px-4 sm:mx-0 sm:px-6 sm:rounded-full border-y sm:border border-white/5 shadow-2xl overflow-x-auto no-scrollbar">
+          <ul className="flex flex-nowrap items-center justify-start sm:justify-center gap-2 sm:gap-3 md:gap-4 min-w-max mx-auto px-4 sm:px-0">
             {tabLinks.map((tab) => (
               <li key={tab.id} className="relative">
                 <Link

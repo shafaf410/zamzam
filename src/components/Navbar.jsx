@@ -65,14 +65,25 @@ const Navbar = ({ onMenuClick }) => {
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               link.type === "button" ? (
-                <button
-                  key={link.name}
-                  onClick={onMenuClick}
-                  className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
-                </button>
+                onMenuClick ? (
+                  <button
+                    key={link.name}
+                    onClick={onMenuClick}
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href="/?menu=open"
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </Link>
+                )
               ) : (
                 <Link
                   key={link.name}
@@ -164,20 +175,30 @@ const Navbar = ({ onMenuClick }) => {
                       className="w-full"
                     >
                       {link.type === "button" ? (
-                        <button
-                          onClick={() => {
-                            onMenuClick();
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full"
-                        >
-                          {link.name}
-                        </button>
+                        onMenuClick ? (
+                          <button
+                            onClick={() => {
+                              onMenuClick();
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
+                          >
+                            {link.name}
+                          </button>
+                        ) : (
+                          <Link
+                            href="/?menu=open"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                          >
+                            {link.name}
+                          </Link>
+                        )
                       ) : (
                         <Link
                           href={link.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block"
+                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
                         >
                           {link.name}
                         </Link>

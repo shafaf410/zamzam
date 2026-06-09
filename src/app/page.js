@@ -68,19 +68,19 @@ export default function Home() {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[100] bg-white overflow-y-auto"
+            className="fixed inset-0 z-[100] bg-maroon-dark overflow-y-auto"
           >
             {/* Close Button Overlay */}
             <div className="sticky top-0 w-full z-[110] px-6 py-6 flex justify-end pointer-events-none">
               <button
                 onClick={toggleMenu}
-                className="pointer-events-auto p-4 bg-brand-primary text-white rounded-full hover:bg-brand-accent transition-all duration-500 shadow-2xl hover:scale-110 active:scale-95 group"
+                className="pointer-events-auto p-4 bg-gold text-black-pure rounded-full hover:bg-gold-light transition-all duration-500 shadow-2xl hover:scale-110 active:scale-95 group cursor-pointer"
               >
                 <X size={32} className="group-hover:rotate-90 transition-transform duration-500" />
               </button>
             </div>
 
-            <div className="-mt-20">
+            <div className="pt-4">
                <MenuSection />
             </div>
           </motion.div>
