@@ -3,105 +3,261 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Globe, Share2, ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const InstagramIcon = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const FacebookIcon = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+
+const visualFeed = [
+  {
+    image: "/images/menu/mutton_haneeth.png",
+    title: "Heritage Haneeth",
+    category: "Tradition",
+    link: "https://instagram.com"
+  },
+  {
+    image: "/images/menu/mix_meat_platter.jpg",
+    title: "The Feast Platter",
+    category: "Craftsmanship",
+    link: "https://instagram.com"
+  },
+  {
+    image: "/images/menu/kunafa.png",
+    title: "Golden Kunafa",
+    category: "Dessert Artistry",
+    link: "https://instagram.com"
+  }
+];
+
 export default function SocialPage() {
+  const fadeUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  };
+
   return (
-    <main className="bg-black-pure min-h-screen relative overflow-hidden">
+    <main className="bg-black-pure min-h-screen text-beige selection:bg-gold selection:text-black-pure overflow-x-hidden font-sans relative">
       <Navbar />
       
-      {/* Background Atmosphere */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-maroon/20 blur-[150px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gold/10 blur-[150px] rounded-full" />
+      {/* Global Luxury Background Texture */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-pattern-islamic opacity-[0.02] pointer-events-none" />
+        {/* Soft Radial Atmospheric Lights */}
+        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-maroon/15 blur-[160px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-gold/5 blur-[160px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-maroon-dark/50 blur-[180px] rounded-full pointer-events-none" />
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-10 pt-48 pb-32 relative z-10">
-        <div className="text-center mb-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-12 pt-40 md:pt-48 pb-32">
+        {/* Breadcrumbs */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-center gap-2 text-beige-muted text-xs font-light tracking-[0.2em] uppercase opacity-75 mb-10"
+        >
+          <Link href="/" className="hover:text-gold transition-colors">Home</Link>
+          <span className="opacity-40">/</span>
+          <span className="text-gold">Connect</span>
+        </motion.div>
+
+        {/* Editorial Hero Header */}
+        <div className="text-center mb-24 max-w-3xl mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-block p-4 rounded-full bg-gold/10 border border-gold/20 mb-8"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex items-center gap-4 justify-center mb-6"
           >
-            <Share2 className="text-gold w-8 h-8" />
+            <div className="h-[1px] w-8 bg-gold/30" />
+            <span className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">Social Journals</span>
+            <div className="h-[1px] w-8 bg-gold/30" />
           </motion.div>
+          
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-luxury text-white mb-6"
+            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-8xl font-marcellus text-white leading-tight tracking-wide mb-6"
           >
-            Connect To <span className="text-gold italic">Us</span>
+            Connect To <span className="text-gold italic font-luxury">Us</span>
           </motion.h1>
+          
           <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-white/50 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-beige-muted/75 text-base md:text-xl font-light tracking-wide leading-relaxed"
           >
-            Follow our journey and stay updated with our latest culinary masterpieces, events, and special offers.
+            Follow our journey and stay updated with our latest culinary masterpieces, heritage recipes, and exclusive stories from our kitchen.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Immersive Floating Social Panels */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-32 max-w-5xl mx-auto">
           {/* Instagram Card */}
           <motion.a
-            href="https://instagram.com"
+            href="https://www.instagram.com/zamzammandi/"
             target="_blank"
-            initial={{ opacity: 0, x: -30 }}
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="group relative block bg-black-soft border border-white/5 rounded-[2.5rem] p-12 overflow-hidden hover:border-gold/30 transition-luxury shadow-2xl"
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative block bg-gradient-to-b from-maroon-dark/60 via-maroon-dark/40 to-black-pure/80 border border-gold/15 rounded-[2.5rem] p-10 sm:p-12 overflow-hidden hover:border-gold/35 transition-all duration-700 shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:shadow-[0_30px_60px_rgba(212,164,55,0.08)] hover:-translate-y-1.5 cursor-pointer"
           >
-            <div className="relative z-10">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                <Share2 className="text-white w-10 h-10" />
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              <div>
+                {/* Gold Outline Icon Container */}
+                <div className="w-16 h-16 rounded-2xl border border-gold/20 bg-gold/5 flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 group-hover:bg-gold/10 group-hover:border-gold/40 transition-all duration-500">
+                  <InstagramIcon className="text-gold w-8 h-8 stroke-[1.25]" />
+                </div>
+                
+                <span className="text-[10px] font-bold tracking-[0.3em] text-gold/60 uppercase block mb-2">Visual Stories</span>
+                <h2 className="text-3xl sm:text-4xl font-marcellus text-white mb-4 tracking-wider group-hover:text-gold transition-colors duration-500">Instagram</h2>
+                <p className="text-beige-muted/60 mb-10 leading-relaxed font-light text-sm sm:text-base">
+                  Explore behind-the-scenes moments, our signature dishes gallery, and exclusive live stories directly from the heat of our kitchen.
+                </p>
               </div>
-              <h2 className="text-3xl font-luxury text-white mb-4">Instagram</h2>
-              <p className="text-white/40 mb-8 leading-relaxed font-light">
-                Explore behind-the-scenes moments, our signature dishes gallery, and exclusive stories from our kitchen.
-              </p>
-              <span className="inline-flex items-center gap-3 text-gold text-[10px] font-bold tracking-[0.3em] uppercase group-hover:gap-6 transition-all">
-                Follow Us Now <div className="w-8 h-[1px] bg-gold" />
+              
+              <span className="inline-flex items-center gap-3 text-gold text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 group-hover:gap-5">
+                Follow Our Gallery <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
             </div>
+            
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[60px] group-hover:bg-gold/10 transition-colors" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[50px] group-hover:bg-gold/10 transition-colors pointer-events-none" />
+            <div className="absolute -inset-px bg-gradient-to-b from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] pointer-events-none" />
           </motion.a>
 
           {/* Facebook Card */}
           <motion.a
-            href="https://facebook.com"
+            href="https://www.facebook.com/zamzammandii/"
             target="_blank"
-            initial={{ opacity: 0, x: 30 }}
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="group relative block bg-black-soft border border-white/5 rounded-[2.5rem] p-12 overflow-hidden hover:border-gold/30 transition-luxury shadow-2xl"
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative block bg-gradient-to-b from-maroon-dark/60 via-maroon-dark/40 to-black-pure/80 border border-gold/15 rounded-[2.5rem] p-10 sm:p-12 overflow-hidden hover:border-gold/35 transition-all duration-700 shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:shadow-[0_30px_60px_rgba(212,164,55,0.08)] hover:-translate-y-1.5 cursor-pointer"
           >
-            <div className="relative z-10">
-              <div className="w-20 h-20 rounded-2xl bg-[#1877F2] flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                <Globe className="text-white w-10 h-10" />
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              <div>
+                {/* Gold Outline Icon Container */}
+                <div className="w-16 h-16 rounded-2xl border border-gold/20 bg-gold/5 flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 group-hover:bg-gold/10 group-hover:border-gold/40 transition-all duration-500">
+                  <FacebookIcon className="text-gold w-8 h-8 stroke-[1.25]" />
+                </div>
+                
+                <span className="text-[10px] font-bold tracking-[0.3em] text-gold/60 uppercase block mb-2">Community & News</span>
+                <h2 className="text-3xl sm:text-4xl font-marcellus text-white mb-4 tracking-wider group-hover:text-gold transition-colors duration-500">Facebook</h2>
+                <p className="text-beige-muted/60 mb-10 leading-relaxed font-light text-sm sm:text-base">
+                  Join our community, read authentic guest reviews, and stay informed about our latest news, seasonal offers, and upcoming events.
+                </p>
               </div>
-              <h2 className="text-3xl font-luxury text-white mb-4">Facebook</h2>
-              <p className="text-white/40 mb-8 leading-relaxed font-light">
-                Join our community, check out guest reviews, and stay informed about our latest news and upcoming events.
-              </p>
-              <span className="inline-flex items-center gap-3 text-gold text-[10px] font-bold tracking-[0.3em] uppercase group-hover:gap-6 transition-all">
-                Visit Our Page <div className="w-8 h-[1px] bg-gold" />
+              
+              <span className="inline-flex items-center gap-3 text-gold text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 group-hover:gap-5">
+                Join The Circle <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
             </div>
+            
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[60px] group-hover:bg-gold/10 transition-colors" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[50px] group-hover:bg-gold/10 transition-colors pointer-events-none" />
+            <div className="absolute -inset-px bg-gradient-to-b from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] pointer-events-none" />
           </motion.a>
         </div>
 
+        {/* Visual Feed Section (Mouth-Watering Culinary Artistry Preview) */}
+        <motion.div 
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            animate: { transition: { staggerChildren: 0.15 } }
+          }}
+          className="space-y-12 max-w-5xl mx-auto"
+        >
+          <div className="text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+            <div className="space-y-2">
+              <span className="text-gold uppercase tracking-[0.3em] text-[9px] font-bold">Visual Journals</span>
+              <h2 className="text-3xl sm:text-4xl font-marcellus text-white tracking-wide">The Culinary Gallery</h2>
+            </div>
+            <p className="text-beige-muted/50 text-sm font-light max-w-sm mt-4 md:mt-0 leading-relaxed">
+              A curated look at our traditional slow-cooking process and luxurious dining experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visualFeed.map((post, idx) => (
+              <motion.a
+                key={idx}
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={fadeUp}
+                className="group relative block overflow-hidden rounded-[2rem] border border-white/5 bg-black-soft aspect-[4/5] shadow-2xl cursor-pointer"
+              >
+                <div className="absolute inset-0">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-[2.5s] ease-out group-hover:scale-105"
+                  />
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black-pure/90 via-black-pure/30 to-transparent group-hover:from-black-pure/80 transition-all duration-500" />
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <span className="text-gold font-sans font-bold text-[8px] tracking-[0.3em] uppercase mb-2 block">
+                    {post.category}
+                  </span>
+                  <h3 className="text-2xl font-marcellus text-beige tracking-wider drop-shadow-lg mb-1 group-hover:text-gold transition-colors">
+                    {post.title}
+                  </h3>
+                  <div className="h-[1px] w-6 bg-gold/50 transition-all duration-500 group-hover:w-full group-hover:bg-gold mt-2" />
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Back Link */}
         <div className="mt-32 text-center">
           <Link 
             href="/"
-            className="inline-flex items-center gap-4 text-white/40 hover:text-gold transition-colors text-[10px] font-bold tracking-[0.4em] uppercase"
+            className="inline-flex items-center gap-4 text-white/40 hover:text-gold transition-colors text-[10px] font-bold tracking-[0.4em] uppercase group"
           >
-            <ArrowLeft size={16} />
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
         </div>
