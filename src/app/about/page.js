@@ -141,12 +141,6 @@ const AboutPage = () => {
                 </p>
               </div>
 
-              <div className="pt-4">
-                <Link href="/#experience" className="group relative inline-flex items-center gap-6 px-10 py-5 border border-[#D4A437]/40 text-[#D4A437] rounded-full font-bold tracking-[0.3em] uppercase text-[10px] transition-luxury hover:bg-[#D4A437]/5 hover:border-[#D4A437] overflow-hidden">
-                  <span className="relative z-10">Explore Our Journey</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4A437]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </Link>
-              </div>
             </motion.div>
           </div>
         </section>
