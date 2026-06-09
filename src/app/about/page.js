@@ -23,8 +23,8 @@ const AboutPage = () => {
     offset: ["start end", "end start"]
   });
 
-  // Parallax translation for background video
-  const videoY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  // Optimized parallax translation to prevent gapping and excessive cropping
+  const videoY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
@@ -56,7 +56,7 @@ const AboutPage = () => {
           <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
             <motion.div 
               style={{ y: videoY }}
-              className="absolute inset-x-0 -top-[15%] -bottom-[15%] w-full h-[130%]"
+              className="absolute inset-x-0 -top-[10%] -bottom-[10%] w-full h-[120%]"
             >
               <video
                 autoPlay
@@ -64,7 +64,7 @@ const AboutPage = () => {
                 loop
                 playsInline
                 preload="auto"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               >
                 <source src="/videos/about_background.mp4" type="video/mp4" />
               </video>
