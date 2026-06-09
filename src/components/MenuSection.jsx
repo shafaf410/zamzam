@@ -1,147 +1,154 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { menuCategories } from "@/data/menuData";
 
-const menuImages = [
-  "FULL CHICKEN MANDI WITH RICE_1.jpeg",
-  "GRILLS - CHICKEN KEBAB.jpeg",
-  "GRILLS - CHICKEN TIKKA.jpeg",
-  "GRILLS - LAMB CHOPS.jpeg",
-  "GRILLS - MIXED GRILL LARGE.png",
-  "GRILLS - MIXED GRILL MEDIUM.png",
-  "GRILLS - MIXED GRILL SMALL.png",
-  "HALF CHICKEN MADFOON WITH RICE.jpg",
-  "HALF CHICKEN SHUWA WITH RICE.jpg",
-  "HALF GRILLED CHICKEN WITH RICE.jpeg",
-  "LEMON MINT JUICE.jpeg",
-  "MANGO JUICE.jpeg",
-  "POMEGRANATE JUICE.jpeg"
+const tabLinks = [
+  { id: "all", title: "All", href: "/#menu" },
+  ...menuCategories.map(c => ({ id: c.id, title: c.title, href: `/menu/${c.id}` }))
 ];
 
-const formatTitle = (filename) => {
-  // Remove extension
-  const baseName = filename.split('.').slice(0, -1).join('.');
-  // Replace underscores and dashes with spaces
-  return baseName.replace(/[_-]/g, ' ').toUpperCase();
-};
-
 const MenuSection = () => {
+  // activeTab is forced to "All" since this component only lives on the home page.
+  // Clicking other tabs navigates away.
+  const activeTab = "All";
+
+  const filteredCategories = menuCategories;
+
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#FDFBF7] overflow-hidden">
+    <section id="menu" className="relative py-20 px-4 md:px-12 lg:px-24 bg-maroon-dark overflow-hidden min-h-screen font-sans">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="arabicPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-            <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="none" stroke="#C5A059" strokeWidth="1"/>
-            <circle cx="50" cy="50" r="10" fill="none" stroke="#C5A059" strokeWidth="1"/>
-            <path d="M0 0 L20 20 M80 80 L100 100 M100 0 L80 20 M20 80 L0 100" stroke="#C5A059" strokeWidth="0.5"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#arabicPattern)" />
-        </svg>
-      </div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-pattern-islamic" />
 
       {/* Floating Light Elements */}
       <motion.div 
         animate={{ 
-          x: [0, 50, 0], 
-          y: [0, 30, 0],
+          x: [0, 30, 0], 
+          y: [0, 20, 0],
           opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C5A059] rounded-full blur-[120px] pointer-events-none"
-      />
-      <motion.div 
-        animate={{ 
-          x: [0, -40, 0], 
-          y: [0, 50, 0],
-          opacity: [0.05, 0.15, 0.05]
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#E5D5B5] rounded-full blur-[150px] pointer-events-none"
+        className="absolute top-1/4 left-0 w-64 h-64 bg-gold rounded-full blur-[100px] pointer-events-none"
       />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10">
           <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-gold uppercase tracking-[0.4em] text-[10px] sm:text-xs font-bold mb-3 block"
+          >
+            Culinary Journey
+          </motion.span>
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#C5A059] uppercase tracking-[0.4em] text-xs font-bold mb-4 block"
-          >
-            Experience Excellence
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-luxury text-[#4A3728] mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-marcellus text-beige mb-6 leading-tight"
           >
-            Our Signature <span className="italic font-serif">Menu</span>
+            The ZamZam <span className="italic font-luxury text-gold">Experience</span>
           </motion.h2>
-          <motion.div 
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 1 }}
-            className="h-[1px] bg-[#C5A059] mx-auto"
-          />
         </div>
 
-        {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
-          {menuImages.map((image, index) => (
-            <motion.div
-              key={image}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(197,160,89,0.2)]">
-                {/* Image Container */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src={`/images/food/${image}`}
-                    alt={formatTitle(image)}
-                    fill
-                    className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
-                  />
-                </div>
-
-                {/* Glassmorphism Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF7]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
-                {/* Hover Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  <div className="absolute inset-0 bg-[#C5A059]/5" />
-                  <div className="absolute inset-0 border-[1px] border-[#C5A059]/20 rounded-[2rem]" />
-                </div>
-              </div>
-
-              {/* Title */}
-              <motion.div 
-                className="mt-8 text-center"
-                initial={{ opacity: 0.8 }}
-                whileHover={{ opacity: 1 }}
-              >
-                <h3 className="text-xl md:text-2xl font-luxury text-[#4A3728] tracking-wide transition-colors duration-300 group-hover:text-[#C5A059]">
-                  {formatTitle(image)}
-                </h3>
-                <div className="mt-2 w-0 h-[1px] bg-[#C5A059]/40 mx-auto transition-all duration-500 group-hover:w-12" />
-              </motion.div>
-            </motion.div>
-          ))}
+        {/* Sticky Category Navigation */}
+        <div className="sticky top-20 z-40 bg-maroon-dark/95 backdrop-blur-md py-3 sm:py-4 mb-8 -mx-4 px-4 sm:mx-0 sm:px-6 sm:rounded-full border-y sm:border border-white/5 shadow-2xl">
+          <ul className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
+            {tabLinks.map((tab) => (
+              <li key={tab.id} className="relative">
+                <Link
+                  href={tab.href}
+                  className={`block text-[10px] sm:text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border transition-all duration-300 ${
+                    activeTab === tab.title 
+                      ? "text-gold border-gold/40 bg-gold/10 shadow-[0_2px_10px_rgba(212,164,55,0.15)]" 
+                      : "text-beige-muted/60 border-transparent hover:text-beige hover:border-white/10"
+                  }`}
+                >
+                  {tab.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Uniform Symmetric Grid */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredCategories.map((category, index) => (
+              <Link key={category.id} href={`/menu/${category.id}`} className="col-span-1">
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-black-soft shadow-2xl cursor-pointer w-full h-full aspect-[4/5]"
+                >
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Dark Luxury Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black-pure/95 via-black-pure/50 to-transparent group-hover:from-black-pure/90 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-maroon-dark/60 via-transparent to-transparent opacity-80" />
+
+                  {/* Content */}
+                  <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                    <div className="flex flex-col h-full justify-between">
+                      {/* Top Label */}
+                      <div className="self-start px-3 py-1.5 rounded-full bg-black-pure/60 backdrop-blur-md border border-gold/30">
+                        <span className="text-gold font-sans font-bold text-[8px] sm:text-[10px] tracking-[0.3em] uppercase block">
+                          {category.label}
+                        </span>
+                      </div>
+
+                      {/* Bottom Info */}
+                      <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
+                        <span className="text-gold/40 font-luxury text-2xl sm:text-3xl block mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute -top-10">
+                          {category.subtitle}
+                        </span>
+                        <h3 className="text-3xl sm:text-4xl font-marcellus text-beige tracking-wider drop-shadow-lg mb-2">
+                          {category.title}
+                        </h3>
+                        <div className="h-[1px] w-12 bg-gold/50 mb-4 transition-all duration-500 group-hover:w-full group-hover:bg-gold" />
+                        
+                        <div className="flex items-center gap-2 text-gold text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+                          Explore Menu
+                          <svg className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
+                </motion.div>
+              </Link>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
-
+      
       <style jsx>{`
-        .font-luxury {
-          font-family: var(--font-cormorant), serif;
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </section>

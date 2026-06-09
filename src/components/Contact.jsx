@@ -32,7 +32,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-2">Location</h4>
-                  <p className="text-white/60 leading-relaxed">Al Khuwair Street, Muscat, Sultanate of Oman</p>
+                  <a 
+                    href="https://www.google.com/maps/place/ZamZam+Mandi+Restaurant+Ruwi+%D9%85%D8%B7%D8%B9%D9%85+%D8%B2%D9%85%D8%B2%D9%85+%D8%A7%D9%84%D9%85%D9%86%D8%AF%D9%8I+%D8%B1%D9%88%D9%8I%E2%80%AD/@23.5946661,58.550766,17z/data=!3m1!4b1!4m6!3m5!1s0x3e91f9e8a89a0a69:0x49105cb7f0575bd3!8m2!3d23.5946661!4d58.550766!16s%2Fg%2F11j1hblb7k!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/60 leading-relaxed hover:text-gold transition-colors duration-300 underline underline-offset-4 decoration-white/20 hover:decoration-gold"
+                  >
+                    ZamZam Mandi Restaurant, Ruwi, Muscat, Sultanate of Oman
+                  </a>
                 </div>
               </div>
 
@@ -70,7 +77,7 @@ const Contact = () => {
           {/* Embedded Map Container */}
           <div className="lg:w-2/3 h-[300px] md:h-[500px] relative rounded-3xl overflow-hidden border border-gold/10 grayscale hover:grayscale-0 transition-all duration-700">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14629.475141695773!2d58.4231889!3d23.5911466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e91ff60e7e17c8d%3A0x7d6f5f3e5c5c5c5c!2sAl%20Khuwair%2C%20Muscat!5e0!3m2!1sen!2som!4v1650000000000!5m2!1sen!2som" 
+              src="https://maps.google.com/maps?q=ZamZam%20Mandi%20Restaurant%20Ruwi&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

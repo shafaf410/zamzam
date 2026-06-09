@@ -48,7 +48,7 @@ const SignatureStickyScroll = forwardRef<HTMLElement, React.HTMLAttributes<HTMLE
               </figure>
               <figure className='w-full group overflow-hidden rounded-2xl border border-brand-primary/5 shadow-xl group-hover:shadow-2xl transition-all duration-700'>
                 <img
-                  src='/IMAGES/ChatGPT Image May 8, 2026, 05_14_35 PM.png'
+                  src='/images/spices_mandi.png'
                   alt='Premium Arabian Spices'
                   className='transition-all duration-700 w-full h-[600px] align-bottom object-cover group-hover:scale-110'
                 />

@@ -13,7 +13,7 @@ const Navbar = ({ onMenuClick }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,10 +37,10 @@ const Navbar = ({ onMenuClick }) => {
       )}
     >
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Left: Logo & Branding Grouped Tighter */}
+        {/* Left: Logo & Branding */}
         <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center gap-3 md:gap-4">
-            <div className="relative w-10 h-10 md:w-14 md:h-14">
+          <Link href="/" className="group flex items-center gap-2 sm:gap-4">
+            <div className="relative w-9 h-9 sm:w-14 sm:h-14">
               <Image
                 src="/images/logo_clean.png"
                 alt="Zam Zam Mandi Logo"
@@ -50,10 +50,10 @@ const Navbar = ({ onMenuClick }) => {
               />
             </div>
             <div className="flex flex-col -space-y-0.5">
-              <span className="text-lg md:text-2xl font-luxury font-medium text-white tracking-[0.15em] md:tracking-[0.2em] leading-none uppercase">
+              <span className="text-base sm:text-2xl font-luxury font-medium text-white tracking-[0.1em] sm:tracking-[0.2em] leading-none uppercase">
                 Zam Zam
               </span>
-              <span className="text-[5px] md:text-[6px] font-sans font-black text-gold tracking-[0.5em] md:tracking-[0.7em] mt-1 uppercase opacity-70">
+              <span className="text-[4px] sm:text-[6px] font-sans font-black text-gold tracking-[0.4em] sm:tracking-[0.7em] mt-1 uppercase opacity-70">
                 The Heritage Mandi
               </span>
             </div>
@@ -102,12 +102,13 @@ const Navbar = ({ onMenuClick }) => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - High Contrast */}
         <button
-          className="lg:hidden text-white/80 hover:text-gold transition-colors"
+          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90"
           onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Open Menu"
         >
-          <Menu size={24} />
+          <Menu size={28} />
         </button>
       </div>
 
@@ -123,56 +124,96 @@ const Navbar = ({ onMenuClick }) => {
               className="fixed inset-0 bg-black-pure/90 backdrop-blur-sm z-[100]"
             />
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-full max-w-sm z-[101] bg-black-pure border-l border-gold/10 p-12 flex flex-col justify-center"
+              key="mobile-menu-full-solid"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{ backgroundColor: "#000000", opacity: 1 }}
+              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 overflow-hidden"
             >
+              {/* Decorative Background Pattern */}
+              <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
+              
+              {/* Close Button - Forced High Contrast */}
               <button 
-                className="absolute top-10 right-10 text-white/40 hover:text-gold"
+                className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 transition-all p-4 z-[10000]"
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close Menu"
               >
-                <X size={32} />
+                <X size={36} />
               </button>
               
-              <div className="flex flex-col gap-12 items-center text-center">
-                {navLinks.map((link) => (
-                  link.type === "button" ? (
-                    <button
-                      key={link.name}
-                      onClick={() => {
-                        onMenuClick();
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="text-3xl font-luxury text-white/80 hover:text-gold transition-colors tracking-[0.3em] uppercase cursor-pointer"
-                    >
-                      {link.name}
-                    </button>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-3xl font-luxury text-white/80 hover:text-gold transition-colors tracking-[0.3em] uppercase"
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                ))}
-                
-                <Link
-                  href="https://wa.me/96800000000"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-12 px-16 py-6 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] hover:bg-maroon-light"
+              <div className="relative z-10 flex flex-col gap-8 sm:gap-10 items-center text-center w-full max-w-xs h-full justify-center">
+                {/* Branding Top */}
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6"
                 >
-                  Order
-                </Link>
-              </div>
+                  <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">Zam Zam Mandi</span>
+                </motion.div>
 
-              {/* Mobile Branding */}
-              <div className="absolute bottom-20 left-0 w-full text-center opacity-20">
-                <span className="text-gold font-luxury text-xl tracking-[0.5em] uppercase">Zam Zam</span>
+                <div className="flex flex-col gap-6 sm:gap-8 w-full">
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + i * 0.05 }}
+                      className="w-full"
+                    >
+                      {link.type === "button" ? (
+                        <button
+                          onClick={() => {
+                            onMenuClick();
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full"
+                        >
+                          {link.name}
+                        </button>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block"
+                        >
+                          {link.name}
+                        </Link>
+                      )}
+                      {/* Subtle Divider */}
+                      {i < navLinks.length - 1 && (
+                        <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-6" />
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-10 w-full"
+                >
+                  <Link
+                    href="https://wa.me/96800000000"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center px-12 py-5 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] shadow-[0_20px_60px_rgba(0,0,0,1)] active:scale-95 transition-all w-full border border-gold/20"
+                  >
+                    Order Now
+                  </Link>
+                </motion.div>
+
+                <motion.div 
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   transition={{ delay: 0.6 }}
+                   className="mt-10 flex flex-col items-center gap-4 opacity-40"
+                >
+                  <div className="h-10 w-[1px] bg-gold/40" />
+                  <span className="text-gold font-luxury text-sm tracking-[0.8em] uppercase">Oman</span>
+                </motion.div>
               </div>
             </motion.div>
           </>

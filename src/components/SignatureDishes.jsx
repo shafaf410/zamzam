@@ -51,52 +51,52 @@ const SignatureDishes = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {dishes.map((dish, index) => (
             <motion.div
               key={dish.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 1 }}
-              whileHover={{ y: -15 }}
-              className="group relative bg-black-soft border border-white/5 rounded-2xl overflow-hidden transition-luxury hover:border-gold/30 hover:shadow-gold"
+              transition={{ delay: index * 0.1, duration: 0.8 }}
+              whileHover={{ y: -10 }}
+              className="group relative bg-black-soft/30 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-luxury hover:border-gold/30"
             >
-              {/* Image Container */}
-              <div className="relative h-[300px] md:h-[450px] overflow-hidden">
+              {/* Image Container - Optimized for Mobile Aspect Ratio */}
+              <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:h-[450px] overflow-hidden">
                 <Image
-                  src={dish.image}
-                  alt={dish.title}
-                  fill
-                  className="object-cover transition-luxury duration-[2s] group-hover:scale-110 group-hover:brightness-75"
+                   src={dish.image}
+                   alt={dish.title}
+                   fill
+                   className="object-cover transition-luxury duration-[3s] group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black-soft via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black-soft via-transparent to-transparent opacity-90" />
                 
-                {/* Price Tag Overlay */}
-                <div className="absolute top-6 right-6 px-4 py-2 bg-black-pure/80 backdrop-blur-md border border-gold/20 rounded-full">
-                  <span className="text-gold font-bold text-xs tracking-wider">{dish.price}</span>
+                {/* Price Tag - Better Mobile Scaling */}
+                <div className="absolute top-5 right-5 px-4 py-2 bg-black-pure/60 backdrop-blur-md border border-gold/20 rounded-full">
+                  <span className="text-gold font-bold text-[10px] sm:text-xs tracking-wider">{dish.price}</span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-10 relative">
-                <span className="text-gold/60 font-sans font-bold text-[8px] tracking-[0.4em] uppercase block mb-4">
+              {/* Content - Refined Spacing */}
+              <div className="p-8 sm:p-10 relative">
+                <span className="text-gold/60 font-sans font-bold text-[7px] sm:text-[8px] tracking-[0.3em] uppercase block mb-3">
                   {dish.label}
                 </span>
-                <h3 className="text-3xl font-luxury text-white mb-4 group-hover:text-gold transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-marcellus text-white mb-3 group-hover:text-gold transition-colors">
                   {dish.title}
                 </h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-8 font-light">
+                <p className="text-white/50 text-[13px] sm:text-sm leading-relaxed mb-6 sm:mb-8 font-light">
                   {dish.description}
                 </p>
                 
-                <button className="flex items-center gap-3 text-gold text-[10px] font-bold tracking-[0.3em] uppercase group/btn">
+                <button className="flex items-center gap-3 text-gold text-[9px] sm:text-[10px] font-bold tracking-[0.3em] uppercase group/btn">
                   Explore Details
                   <ArrowRight size={14} className="group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </div>
 
-              {/* Gold Illumination Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none" />
+              {/* Hover Glow */}
+              <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none" />
             </motion.div>
           ))}
         </div>

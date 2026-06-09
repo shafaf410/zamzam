@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -27,8 +28,15 @@ export default function Home() {
     }
   };
 
-  // Cleanup on unmount
+  // Cleanup on unmount & check query params to reopen menu
   useEffect(() => {
+    // Check if we came back from a category page and need to open the menu
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("menu") === "open") {
+      setIsMenuOpen(true);
+      document.body.style.overflow = "hidden";
+    }
+
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -40,11 +48,17 @@ export default function Home() {
       <Navbar onMenuClick={toggleMenu} />
       <Hero onMenuClick={toggleMenu} />
       
-      <div className="bg-site-theme">
-        <Experience />
-        <About />
-        <Reviews />
-        <Contact />
+      <div className="relative bg-maroon-dark overflow-hidden">
+        {/* Uploaded Pattern Background for content below Hero */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <Image src="/images/pattern_bg_red.jpg" alt="Background" fill className="object-cover mix-blend-multiply opacity-60" />
+        </div>
+        <div className="relative z-10">
+          <Experience />
+          <About />
+          <Reviews />
+          <Contact />
+        </div>
       </div>
 
       <AnimatePresence>

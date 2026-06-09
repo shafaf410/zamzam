@@ -5,11 +5,22 @@ import { useEffect, useState } from "react";
 
 const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
+    const hasLoaded = sessionStorage.getItem("zamzam_loaded");
+    if (hasLoaded) {
+      setLoading(false);
+      setIsFirstLoad(false);
+      return;
+    }
+    
+    sessionStorage.setItem("zamzam_loaded", "true");
     const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!isFirstLoad && !loading) return null;
 
   return (
     <AnimatePresence>
