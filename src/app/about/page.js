@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, MessageCircle, Utensils, Award, Users, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AboutSection1 from "@/components/ui/about-section-1";
 
 // Ornaments Components
 const KnotOrnament = ({ className }) => (
@@ -135,6 +136,8 @@ const AboutPage = () => {
             </motion.div>
           </div>
         </section>
+
+        <AboutSection1 />
 
         {/* Feature Highlights Section */}
         <section className="py-16 px-6 md:px-12 bg-[#1A0006]/20">
