@@ -8,12 +8,14 @@ import Link from "next/link";
 
 const Hero = ({ onMenuClick }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const images = [
     "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg",
     "/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg",
   ];
 
   useEffect(() => {
+    setIsMounted(true);
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 12000);
@@ -58,31 +60,33 @@ const Hero = ({ onMenuClick }) => {
       </div>
 
       {/* Floating Spice Dust Particles */}
-      <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-        {[...Array(60)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-gold/30 rounded-full"
-            initial={{ 
-              x: Math.random() * 100 + "%", 
-              y: Math.random() * 100 + "%",
-              opacity: 0
-            }}
-            animate={{ 
-              y: [null, (Math.random() - 0.5) * 400 + "px"],
-              x: [null, (Math.random() - 0.5) * 400 + "px"],
-              opacity: [0, 0.4, 0],
-              scale: [0, 1.5, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 12 + 10, 
-              repeat: Infinity, 
-              ease: "linear",
-              delay: Math.random() * 5
-            }}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+          {[...Array(60)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-[2px] h-[2px] bg-gold/30 rounded-full"
+              initial={{ 
+                x: Math.random() * 100 + "%", 
+                y: Math.random() * 100 + "%",
+                opacity: 0
+              }}
+              animate={{ 
+                y: [null, (Math.random() - 0.5) * 400 + "px"],
+                x: [null, (Math.random() - 0.5) * 400 + "px"],
+                opacity: [0, 0.4, 0],
+                scale: [0, 1.5, 0]
+              }}
+              transition={{ 
+                duration: Math.random() * 12 + 10, 
+                repeat: Infinity, 
+                ease: "linear",
+                delay: Math.random() * 5
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Hero Content: Centered Luxury Layout */}
       <div className="relative z-30 w-full max-w-6xl mx-auto px-5 sm:px-8 text-center pt-12 sm:pt-20">
