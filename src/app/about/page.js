@@ -50,49 +50,8 @@ const AboutPage = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-24 px-6 overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="flex items-center justify-center gap-6 mb-8"
-            >
-              <KnotOrnament className="hidden md:block" />
-              <h1 className="text-5xl md:text-8xl font-marcellus text-[#D4A437] tracking-[0.05em]">About Us</h1>
-              <KnotOrnament className="hidden md:block" />
-            </motion.div>
-
-            <motion.div 
-              {...fadeUp}
-              className="space-y-8 max-w-3xl mx-auto"
-            >
-              <p className="text-lg md:text-xl font-light leading-relaxed text-[#F8F3EA]/90 tracking-wide italic">
-                ZamZam Mandi restaurant opened its doors for its first customer in 2009 with the intention of bringing the authentic middle eastern dining experience at affordable prices to the food-lovers.
-              </p>
-              <p className="text-lg md:text-xl font-light text-[#F8F3EA]/90">
-                We are now in Oman to provide our <br />
-                <span className="text-[#D4A437] font-bold tracking-[0.1em] text-2xl md:text-3xl block mt-2 uppercase">BEST-IN-CLASS services.</span>
-              </p>
-
-              <div className="flex items-center justify-center gap-2 pt-8 text-[#D8CFC2] text-sm md:text-base font-light tracking-[0.1em]">
-                <Link href="/" className="hover:text-[#D4A437] transition-colors">Home</Link>
-                <span className="opacity-40">/</span>
-                <span className="text-[#D4A437]">About Us</span>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="absolute bottom-0 left-0 w-full leading-[0] pointer-events-none">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-16 md:h-24 fill-[#1A0006]/20">
-              <path d="M0,0V120H1200V0C1113,66.76,989.49,106.05,887.45,117.55c-34.6,11.5-68.3,23.34-104.45,29.34C711.9,158.69,642.87,151.81,573.6,133.81c-70.66-18.38-144.36-39.62-225.2-30.76-70.47,4.19-136.44,32.13-206.8,37.5C83.59,144.74,27.79,134.77,0,112.57Z"></path>
-            </svg>
-          </div>
-        </section>
-
-        {/* Story Section - Centered Luxury Parallax Video Layout */}
-        <section ref={sectionRef} className="py-36 px-6 md:px-12 relative overflow-hidden min-h-[75vh] flex items-center justify-center">
+        {/* Unified Cinematic About Us & Story Section */}
+        <section ref={sectionRef} className="pt-40 pb-28 px-6 md:px-12 relative overflow-hidden min-h-screen flex items-center justify-center">
           {/* Parallax Video Backdrop */}
           <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
             <motion.div 
@@ -117,28 +76,60 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(90,0,19,0.15)_0%,rgba(26,0,6,0.5)_100%)] z-10" />
 
           {/* Centered Editorial Content */}
-          <div className="relative z-20 max-w-4xl mx-auto text-center">
-            <motion.div {...fadeUp} className="space-y-12">
+          <div className="relative z-20 max-w-4xl mx-auto text-center w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-12"
+            >
+              {/* Breadcrumbs */}
+              <div className="flex items-center justify-center gap-2 text-[#D8CFC2] text-xs font-light tracking-[0.2em] uppercase opacity-75">
+                <Link href="/" className="hover:text-[#D4A437] transition-colors">Home</Link>
+                <span className="opacity-40">/</span>
+                <span className="text-[#D4A437]">About Us</span>
+              </div>
+
+              {/* Title & Header */}
               <div className="space-y-4 flex flex-col items-center">
                 <div className="flex items-center gap-4 justify-center">
                   <div className="h-[1px] w-8 bg-[#D4A437]/30" />
                   <span className="text-[#D4A437] uppercase tracking-[0.4em] text-[10px] font-bold">Our Story</span>
                   <div className="h-[1px] w-8 bg-[#D4A437]/30" />
                 </div>
-                <h2 className="text-4xl md:text-6xl font-marcellus text-[#F8F3EA] leading-tight">
-                  The Story About <span className="text-[#D4A437] italic">Zam Zam</span>
+                <h1 className="text-5xl md:text-8xl font-marcellus text-[#F8F3EA] leading-tight">
+                  About Us
+                </h1>
+                <h2 className="text-2xl md:text-3xl font-marcellus text-[#D4A437] tracking-widest italic -mt-2">
+                  The Story About Zam Zam
                 </h2>
                 <KnotOrnament className="mt-4" />
               </div>
               
-              <div className="space-y-8 max-w-3xl mx-auto">
-                <p className="text-[#D4A437] text-2xl md:text-3xl font-light leading-relaxed font-luxury italic">
+              {/* Highlight Quote */}
+              <div className="max-w-3xl mx-auto">
+                <p className="text-[#D4A437] text-2xl md:text-4xl font-light leading-relaxed font-luxury italic">
                   "At Zam Zam Mandi Restaurant, we bring you the rich flavors and culinary heritage of Yemen, prepared with ancient secrets and modern passion."
                 </p>
-                <div className="h-[1px] w-16 bg-[#D4A437]/20 mx-auto" />
-                <p className="text-[#D8CFC2] text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              </div>
+
+              <div className="h-[1px] w-24 bg-[#D4A437]/20 mx-auto" />
+
+              {/* Story Narrative & Callouts */}
+              <div className="space-y-8 max-w-3xl mx-auto">
+                <p className="text-[#D8CFC2] text-base md:text-xl font-light leading-relaxed">
+                  ZamZam Mandi restaurant opened its doors for its first customer in 2009 with the intention of bringing the authentic middle eastern dining experience at affordable prices to the food-lovers.
+                </p>
+                <p className="text-[#D8CFC2] text-base md:text-xl font-light leading-relaxed">
                   Founded with a vision to preserve authentic Arabian hospitality, every grain of rice and every cut of meat tells a story of tradition, slow-cooking, and hand-picked spices.
                 </p>
+                
+                <div className="pt-6">
+                  <p className="text-lg md:text-xl font-light text-[#F8F3EA]/90 leading-relaxed">
+                    We are now in Oman to provide our <br />
+                    <span className="text-[#D4A437] font-bold tracking-[0.15em] text-2xl md:text-3xl block mt-3 uppercase">BEST-IN-CLASS services.</span>
+                  </p>
+                </div>
               </div>
 
             </motion.div>
