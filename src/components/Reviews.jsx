@@ -196,9 +196,9 @@ const Reviews = () => {
 
         {/* Scroll Column Testimonials */}
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[740px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={16} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={20} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={18} />
+          <TestimonialsColumn testimonials={firstColumn} duration={40} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={50} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={45} />
         </div>
       </div>
     </section>
