@@ -6,12 +6,26 @@ export const menuData = {
     coverImage: "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg",
     description: "Experience the authentic taste of Yemeni tradition. Slow-cooked perfection.",
     items: [
-      { name: "Quarter Chicken Mandhi", arabic: "ربع دجاج مندي", image: "/images/menu/CHICKEN MANDI HALF.jpeg" },
-      { name: "Half Chicken Mandhi", arabic: "نصف دجاج مندي", image: "/images/menu/CHICKEN MANDI HALF.jpeg" },
-      { name: "Full Chicken Mandhi", arabic: "دجاج مندي كامل", image: "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg" },
-      { name: "Quarter Chicken Al-Faham Mandhi", arabic: "ربع دجاج الفحم مندي", image: "/images/menu/0.jpg" },
-      { name: "Half Chicken Al-Faham Mandhi", arabic: "نصف دجاج الفحم مندي", image: "/images/menu/0.jpg" },
-      { name: "Full Chicken Al-Faham Mandhi", arabic: "دجاج الفحم مندي كامل", image: "/images/menu/0.jpg" },
+      {
+        name: "Chicken Mandhi",
+        arabic: "دجاج مندي",
+        image: "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg",
+        sizes: [
+          { name: "Quarter", arabic: "ربع" },
+          { name: "Half", arabic: "نصف" },
+          { name: "Full", arabic: "كامل" }
+        ]
+      },
+      {
+        name: "Chicken Al-Faham Mandhi",
+        arabic: "دجاج الفحم مندي",
+        image: "/images/menu/0.jpg",
+        sizes: [
+          { name: "Quarter", arabic: "ربع" },
+          { name: "Half", arabic: "نصف" },
+          { name: "Full", arabic: "كامل" }
+        ]
+      },
       { name: "Chicken Madfoon", arabic: "دجاج مدفون", image: "/images/food/HALF CHICKEN MADFOON WITH RICE.jpg" },
       { name: "Chicken Mughalkal", arabic: "دجاج مقلغل", image: "/images/food/mughalkal.png" }, 
       { name: "Chicken Shuwa", arabic: "دجاج شواء", image: "/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg" }
@@ -29,6 +43,17 @@ export const menuData = {
       { name: "Mutton Madfoon", arabic: "لحم مدفون", image: "/images/food/mutton_madfoon.png" },
       { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_haneeth.png" },
       { name: "Mutton Mughalkal", arabic: "لحم مقلغل", image: "/images/food/mughalkal.png" }
+    ]
+  },
+  beef: {
+    id: "beef",
+    title: "BEEF",
+    subtitle: "لحم بقر",
+    coverImage: "/images/menu/BEEF HANEETH.jpeg",
+    description: "Tender, succulent beef prepared with authentic traditional Middle Eastern spices.",
+    items: [
+      { name: "Beef Biriyani", arabic: "برياني لحم بقر", image: "/images/menu/beef_biryani.png" },
+      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/BEEF HANEETH.jpeg" }
     ]
   },
   fish: {
@@ -56,7 +81,7 @@ export const menuData = {
       { name: "All Mix Platter", arabic: "طبق مشكل كامل", image: "/images/menu/MIX MANDI ALL MIX COMBO.jpg" },
       { name: "Chicken Biriyani", arabic: "برياني دجاج", image: "/images/menu/CHICKEN DUM BIRYANI 1.jpg" },
       { name: "Beef Biriyani", arabic: "برياني لحم بقر", image: "/images/menu/beef_biryani.png" },
-      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/mutton_haneeth.png" }, 
+      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/BEEF HANEETH.jpeg" }, 
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" }
     ]
   },
@@ -68,8 +93,15 @@ export const menuData = {
     description: "The perfect sweet ending to your authentic Arabian dining experience.",
     items: [
       { name: "Kunafa", arabic: "كنافة", image: "/images/menu/kunafa.png" },
-      { name: "Loqaimat Small", arabic: "لقيمات صغير", image: "/images/menu/LUQIMAT 2.jpeg" },
-      { name: "Loqaimat", arabic: "لقيمات", image: "/images/menu/LUQIMAT 2.jpeg" },
+      {
+        name: "Loqaimat",
+        arabic: "لقيمات",
+        image: "/images/menu/LUQIMAT 2.jpeg",
+        sizes: [
+          { name: "Small", arabic: "صغير" },
+          { name: "Standard", arabic: "عادي" }
+        ]
+      },
       { name: "Honey Cake Slice", arabic: "شريحة كيكة العسل", image: "/images/menu/HONEY CAKE 2.JPG" },
       { name: "Saffron Milk Cake", arabic: "كيكة الحليب بالزعفران", image: "/images/menu/saffron_milk_cake.png" }
     ]
@@ -95,10 +127,24 @@ export const menuData = {
     coverImage: "/images/salads/arabic_salad.png", 
     description: "Fresh, crisp, and vibrant salads to complement your main courses perfectly.",
     items: [
-      { name: "Hummus Small", arabic: "حمص صغير", image: "/images/salads/hummus.png" },
-      { name: "Hummus Large", arabic: "حمص كبير", image: "/images/salads/hummus.png" },
-      { name: "Mutabbal Small", arabic: "متبل صغير", image: "/images/salads/mutabbal.png" },
-      { name: "Mutabbal Large", arabic: "متبل كبير", image: "/images/salads/mutabbal.png" },
+      {
+        name: "Hummus",
+        arabic: "حمص",
+        image: "/images/salads/hummus.png",
+        sizes: [
+          { name: "Small", arabic: "صغير" },
+          { name: "Large", arabic: "كبير" }
+        ]
+      },
+      {
+        name: "Mutabbal",
+        arabic: "متبل",
+        image: "/images/salads/mutabbal.png",
+        sizes: [
+          { name: "Small", arabic: "صغير" },
+          { name: "Large", arabic: "كبير" }
+        ]
+      },
       { name: "Girgir Salad", arabic: "سلطة جرجير", image: "/images/salads/girgir_salad.png" },
       { name: "Fattoush", arabic: "فتوش", image: "/images/salads/fattoush.png" },
       { name: "Arabic Salad", arabic: "سلطة عربية", image: "/images/salads/arabic_salad.png" },
@@ -136,6 +182,13 @@ export const menuCategories = [
     subtitle: "لحم غنم",
     label: "Premium Lamb",
     image: "/images/food/mutton_mandi.png",
+  },
+  {
+    id: "beef",
+    title: "BEEF",
+    subtitle: "لحم بقر",
+    label: "Tender Beef",
+    image: "/images/menu/BEEF HANEETH.jpeg",
   },
   {
     id: "fish",

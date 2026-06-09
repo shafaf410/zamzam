@@ -133,7 +133,21 @@ export default function CategoryPage() {
                     </h3>
                     
                     {/* Gold Accent Divider */}
-                    <div className="w-8 h-[1px] bg-gold/50 mx-auto transition-all duration-500 group-hover:w-20 group-hover:bg-gold" />
+                    <div className="w-8 h-[1px] bg-gold/50 mx-auto transition-all duration-500 group-hover:w-20 group-hover:bg-gold mb-3" />
+
+                    {/* Portions/Sizes Badges */}
+                    {item.sizes && (
+                      <div className="flex flex-wrap justify-center gap-1.5 mt-2">
+                        {item.sizes.map((size) => (
+                          <span 
+                            key={size.name} 
+                            className="text-[9px] sm:text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold"
+                          >
+                            {size.name} <span className="opacity-60 text-[8px]">({size.arabic})</span>
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

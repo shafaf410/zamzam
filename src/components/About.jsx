@@ -20,7 +20,7 @@ const About = () => {
                   src="/images/MANDI/FULL CHICKEN MANDI WITH RICE_1.jpeg"
                   alt="Our Story"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               
