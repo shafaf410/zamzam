@@ -35,12 +35,12 @@ export const menuData = {
     id: "mutton",
     title: "MUTTON",
     subtitle: "لحم غنم",
-    coverImage: "/images/food/mutton_mandi.png",
+    coverImage: "/images/menu/mutton_mandi.jpg",
     description: "Savor the premium taste of slow-roasted tender mutton, prepared with authentic spice blends.",
     items: [
-      { name: "Mutton Mandhi", arabic: "لحم مندي", image: "/images/food/mutton_mandi.png" },
+      { name: "Mutton Mandhi", arabic: "لحم مندي", image: "/images/menu/mutton_mandi.jpg" },
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" },
-      { name: "Mutton Madfoon", arabic: "لحم مدفون", image: "/images/food/mutton_madfoon.png" },
+      { name: "Mutton Madfoon", arabic: "لحم مدفون", image: "/images/menu/mutton_madfoon.jpg" },
       { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_haneeth.png" },
       { name: "Mutton Mughalkal", arabic: "لحم مقلغل", image: "/images/food/mughalkal.png" }
     ]
@@ -49,11 +49,11 @@ export const menuData = {
     id: "beef",
     title: "BEEF",
     subtitle: "لحم بقر",
-    coverImage: "/images/menu/BEEF HANEETH.jpeg",
+    coverImage: "/images/menu/beef_haneeth.jpg",
     description: "Tender, succulent beef prepared with authentic traditional Middle Eastern spices.",
     items: [
       { name: "Beef Biriyani", arabic: "برياني لحم بقر", image: "/images/menu/beef_biryani.png" },
-      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/BEEF HANEETH.jpeg" }
+      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/beef_haneeth.jpg" }
     ]
   },
   fish: {
@@ -73,15 +73,15 @@ export const menuData = {
     id: "specials",
     title: "ZAMZAM SPECIALS",
     subtitle: "أطباق زمزم الخاصة",
-    coverImage: "/images/menu/MIX MANDI ALL CHICKEN COMBO.jpg",
+    coverImage: "/images/menu/mix_chicken_platter.jpg",
     description: "Curated combinations designed for sharing and celebrating.",
     items: [
-      { name: "Mix Chicken Platter", arabic: "طبق دجاج مشكل", image: "/images/menu/MIX MANDI ALL CHICKEN COMBO.jpg" },
-      { name: "Mix Meat Platter", arabic: "طبق لحم مشكل", image: "/images/menu/MIX MANDI ALL MIX COMBO.jpg" },
-      { name: "All Mix Platter", arabic: "طبق مشكل كامل", image: "/images/menu/MIX MANDI ALL MIX COMBO.jpg" },
+      { name: "Mix Chicken Platter", arabic: "طبق دجاج مشكل", image: "/images/menu/mix_chicken_platter.jpg" },
+      { name: "Mix Meat Platter", arabic: "طبق لحم مشكل", image: "/images/menu/mix_meat_platter.jpg" },
+      { name: "All Mix Platter", arabic: "طبق مشكل كامل", image: "/images/menu/mix_meat_platter.jpg" },
       { name: "Chicken Biriyani", arabic: "برياني دجاج", image: "/images/menu/CHICKEN DUM BIRYANI 1.jpg" },
       { name: "Beef Biriyani", arabic: "برياني لحم بقر", image: "/images/menu/beef_biryani.png" },
-      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/BEEF HANEETH.jpeg" }, 
+      { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/beef_haneeth.jpg" }, 
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" }
     ]
   },
@@ -110,14 +110,14 @@ export const menuData = {
     id: "grills",
     title: "GRILLS & RICE COMBO",
     subtitle: "كومبو مشاوي مع ارز",
-    coverImage: "/images/menu/MIXED GRILL LARGE.png",
+    coverImage: "/images/menu/mixed_grill_large.jpg",
     description: "Premium cuts marinated to perfection and char-grilled over open flames.",
     items: [
-      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/menu/0.jpg" }, 
-      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/menu/MIXED GRILL MEDIUM.png" }, 
-      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/menu/MIXED GRILL SMALL.png" }, 
-      { name: "Mutton Kebab with Rice", arabic: "كباب لحم غنم مع أرز", image: "/images/menu/MIXED GRILL LARGE.png" }, 
-      { name: "Lamb Chops with Rice", arabic: "ريش غنم مع أرز", image: "/images/menu/MIXED GRILL LARGE.png" } 
+      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/menu/mixed_grill_small.jpg" }, 
+      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/menu/mixed_grill_medium.jpg" }, 
+      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/menu/mixed_grill_small.jpg" }, 
+      { name: "Mutton Kebab with Rice", arabic: "كباب لحم غنم مع أرز", image: "/images/menu/mixed_grill_large.jpg" }, 
+      { name: "Lamb Chops with Rice", arabic: "ريش غنم مع أرز", image: "/images/menu/mixed_grill_large.jpg" } 
     ]
   },
   salads: {
@@ -181,14 +181,14 @@ export const menuCategories = [
     title: "MUTTON",
     subtitle: "لحم غنم",
     label: "Premium Lamb",
-    image: "/images/food/mutton_mandi.png",
+    image: "/images/menu/mutton_mandi.jpg",
   },
   {
     id: "beef",
     title: "BEEF",
     subtitle: "لحم بقر",
     label: "Tender Beef",
-    image: "/images/menu/BEEF HANEETH.jpeg",
+    image: "/images/menu/beef_haneeth.jpg",
   },
   {
     id: "fish",
@@ -202,7 +202,7 @@ export const menuCategories = [
     title: "ZAMZAM SPECIALS",
     subtitle: "أطباق زمزم الخاصة",
     label: "Chef Special",
-    image: "/images/menu/MIX MANDI ALL CHICKEN COMBO.jpg",
+    image: "/images/menu/mix_chicken_platter.jpg",
   },
   {
     id: "desserts",
@@ -216,7 +216,7 @@ export const menuCategories = [
     title: "GRILLS & RICE COMBO",
     subtitle: "كومبو مشاوي مع ارز",
     label: "Premium Grills",
-    image: "/images/menu/MIXED GRILL LARGE.png",
+    image: "/images/menu/mixed_grill_large.jpg",
   },
   {
     id: "salads",
