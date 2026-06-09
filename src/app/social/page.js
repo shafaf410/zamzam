@@ -58,13 +58,13 @@ export default function SocialPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A0006]/90 via-[#1A0006]/40 to-[#1A0006]/90" />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-12 pt-40 md:pt-48 pb-32 flex flex-col items-center justify-center min-h-[80vh]">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-12 pt-28 md:pt-36 pb-32 flex flex-col items-center justify-center min-h-screen">
         {/* Breadcrumbs */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-2 text-[#F8F3EA]/60 text-xs font-light tracking-[0.2em] uppercase mb-10"
+          className="flex items-center justify-center gap-2 text-[#F8F3EA]/60 text-xs font-light tracking-[0.2em] uppercase mb-8"
         >
           <Link href="/" className="hover:text-[#D4A437] transition-colors">Home</Link>
           <span className="opacity-40">/</span>
@@ -76,13 +76,13 @@ export default function SocialPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-24"
+          className="text-center mb-14"
         >
           <GooeyText
             texts={["Connect To Us", "Follow Us", "Stay Close"]}
             morphTime={1.5}
             cooldownTime={0.5}
-            className="h-[80px] md:h-[120px] w-full"
+            className="h-[60px] md:h-[100px] w-full"
             textClassName="text-5xl md:text-8xl font-marcellus text-white tracking-wide"
           />
         </motion.div>
