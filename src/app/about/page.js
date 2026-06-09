@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, MessageCircle, Utensils, Award, Users, Clock } from "lucide-react";
@@ -16,6 +17,15 @@ const KnotOrnament = ({ className }) => (
 );
 
 const AboutPage = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Parallax translation for background video
+  const videoY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
@@ -81,69 +91,63 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Story Section - Floating Vertical Video Card */}
-        <section className="py-32 px-6 md:px-12 relative overflow-hidden">
-          <div className="max-w-[1400px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <motion.div {...fadeUp} className="space-y-10">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#D4A437] uppercase tracking-[0.4em] text-[10px] font-bold">Our Story</span>
-                    <div className="h-[1px] w-12 bg-[#D4A437]/30" />
-                  </div>
-                  <h2 className="text-5xl md:text-7xl font-marcellus text-[#F8F3EA] leading-[1.1] mb-8">
-                    The Story About <br /> <span className="text-[#D4A437] italic">Zam Zam</span>
-                  </h2>
-                </div>
-                
-                <div className="space-y-6">
-                  <p className="text-[#D8CFC2] text-xl font-light leading-relaxed max-w-xl italic border-l-2 border-[#D4A437]/20 pl-8">
-                    At Zam Zam Mandi Restaurant, we bring you the rich flavors and culinary heritage of Yemen, prepared with ancient secrets and modern passion.
-                  </p>
-                  <p className="text-[#D8CFC2]/70 text-base font-light leading-relaxed max-w-lg pl-8">
-                    Founded with a vision to preserve authentic Arabian hospitality, every grain of rice and every cut of meat tells a story of tradition, slow-cooking, and hand-picked spices.
-                  </p>
-                </div>
-
-                <div className="pt-6">
-                  <Link href="/#experience" className="group relative inline-flex items-center gap-6 px-10 py-5 border border-[#D4A437]/40 text-[#D4A437] rounded-full font-bold tracking-[0.3em] uppercase text-[10px] transition-luxury hover:bg-[#D4A437]/5 hover:border-[#D4A437] overflow-hidden">
-                    <span className="relative z-10">Explore Our Journey</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4A437]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9, x: 50 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                className="flex justify-center lg:justify-end"
+        {/* Story Section - Centered Luxury Parallax Video Layout */}
+        <section ref={sectionRef} className="py-36 px-6 md:px-12 relative overflow-hidden min-h-[75vh] flex items-center justify-center">
+          {/* Parallax Video Backdrop */}
+          <div className="absolute inset-0 z-0 overflow-hidden w-full h-full">
+            <motion.div 
+              style={{ y: videoY }}
+              className="absolute inset-x-0 -top-[15%] -bottom-[15%] w-full h-[130%]"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
               >
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative group w-full max-w-[450px]"
-                >
-                  <div className="absolute -inset-6 bg-[#5A0013]/30 blur-[60px] rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                  <div className="relative aspect-[9/16] rounded-[2.5rem] overflow-hidden border border-[#D4A437]/30 shadow-[0_40px_120px_rgba(0,0,0,0.9)] glass-dark">
-                    <video
-                      key="about-video-mobile"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                      className="absolute inset-0 w-full h-full object-cover block"
-                    >
-                      <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0227e26d2146f49f50f4a7c88b64b1d&profile_id=165&oauth2_token_id=57447761" type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A0006]/60 via-transparent to-transparent opacity-40" />
-                    <div className="absolute inset-[1px] rounded-[2.4rem] border border-white/5 z-20 pointer-events-none" />
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4A437]/40 to-transparent" />
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
+                <source src="/videos/about_background.mp4" type="video/mp4" />
+              </video>
+            </motion.div>
+          </div>
+
+          {/* Premium Dark Burgundy & Gold Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1A0006]/95 via-[#1A0006]/85 to-[#1A0006]/95 z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(90,0,19,0.15)_0%,rgba(26,0,6,0.5)_100%)] z-10" />
+
+          {/* Centered Editorial Content */}
+          <div className="relative z-20 max-w-4xl mx-auto text-center">
+            <motion.div {...fadeUp} className="space-y-12">
+              <div className="space-y-4 flex flex-col items-center">
+                <div className="flex items-center gap-4 justify-center">
+                  <div className="h-[1px] w-8 bg-[#D4A437]/30" />
+                  <span className="text-[#D4A437] uppercase tracking-[0.4em] text-[10px] font-bold">Our Story</span>
+                  <div className="h-[1px] w-8 bg-[#D4A437]/30" />
+                </div>
+                <h2 className="text-4xl md:text-6xl font-marcellus text-[#F8F3EA] leading-tight">
+                  The Story About <span className="text-[#D4A437] italic">Zam Zam</span>
+                </h2>
+                <KnotOrnament className="mt-4" />
+              </div>
+              
+              <div className="space-y-8 max-w-3xl mx-auto">
+                <p className="text-[#D4A437] text-2xl md:text-3xl font-light leading-relaxed font-luxury italic">
+                  "At Zam Zam Mandi Restaurant, we bring you the rich flavors and culinary heritage of Yemen, prepared with ancient secrets and modern passion."
+                </p>
+                <div className="h-[1px] w-16 bg-[#D4A437]/20 mx-auto" />
+                <p className="text-[#D8CFC2] text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+                  Founded with a vision to preserve authentic Arabian hospitality, every grain of rice and every cut of meat tells a story of tradition, slow-cooking, and hand-picked spices.
+                </p>
+              </div>
+
+              <div className="pt-4">
+                <Link href="/#experience" className="group relative inline-flex items-center gap-6 px-10 py-5 border border-[#D4A437]/40 text-[#D4A437] rounded-full font-bold tracking-[0.3em] uppercase text-[10px] transition-luxury hover:bg-[#D4A437]/5 hover:border-[#D4A437] overflow-hidden">
+                  <span className="relative z-10">Explore Our Journey</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4A437]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </section>
 
