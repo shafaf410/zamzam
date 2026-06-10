@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +18,7 @@ const Navbar = ({ onMenuClick }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open to prevent touch/scroll conflicts
+  // Body scroll lock logic
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -39,10 +38,42 @@ const Navbar = ({ onMenuClick }) => {
     { name: "Contact", href: "/#location" },
   ];
 
+  // Helper for direct scroll/navigation
+  const handleMobileNav = (e, link) => {
+    if (link.type === "button") {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      if (onMenuClick) {
+        onMenuClick();
+      }
+      return;
+    }
+
+    if (link.href.startsWith("/#")) {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      const id = link.href.replace("/#", "");
+      
+      if (window.location.pathname === "/") {
+        const el = document.getElementById(id);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 100);
+        }
+      } else {
+        window.location.href = link.href;
+      }
+      return;
+    }
+
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-luxury pointer-events-auto transform-gpu",
+        "fixed top-0 left-0 w-full z-50 transition-luxury pointer-events-auto",
         isScrolled 
           ? "bg-black-pure/95 backdrop-blur-2xl border-b border-gold/10 py-3 shadow-2xl" 
           : "bg-transparent py-4"
@@ -73,7 +104,7 @@ const Navbar = ({ onMenuClick }) => {
           </Link>
         </div>
 
-        {/* Right: Links with Improved Hierarchy & Spacing */}
+        {/* Right: Desktop Links */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
@@ -126,9 +157,9 @@ const Navbar = ({ onMenuClick }) => {
           </div>
         </div>
 
-        {/* Mobile Menu Button - High Contrast */}
+        {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90 pointer-events-auto transform-gpu"
+          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90 pointer-events-auto"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
@@ -136,71 +167,46 @@ const Navbar = ({ onMenuClick }) => {
         </button>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Drawer (Clean, simple DOM element to prevent freeze bugs) */}
       {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-[9999] bg-[#000000] flex flex-col items-center justify-between p-8 overflow-y-auto"
-        >
-          {/* Decorative Background Pattern */}
+        <div className="fixed inset-0 z-[9999] bg-black-pure flex flex-col items-center justify-between p-8 overflow-y-auto pointer-events-auto">
+          {/* Decorative Pattern Background */}
           <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
-          
-          {/* Close Button - Forced High Contrast */}
-          <button 
+
+          {/* Close Trigger */}
+          <button
             className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 p-4 z-[10000] cursor-pointer"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close Menu"
           >
             <X size={36} />
           </button>
-          
+
+          {/* Centered Navigation */}
           <div className="relative z-10 flex flex-col items-center text-center w-full max-w-xs my-auto py-12 gap-8">
-            {/* Branding Top */}
             <div className="mb-4">
-              <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">Zam Zam Mandi</span>
+              <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">
+                Zam Zam Mandi
+              </span>
             </div>
 
             <div className="flex flex-col gap-6 w-full">
               {navLinks.map((link, i) => (
                 <div key={link.name} className="w-full">
-                  {link.type === "button" ? (
-                    onMenuClick ? (
-                      <button
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setTimeout(() => {
-                            onMenuClick();
-                          }, 100);
-                        }}
-                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
-                      >
-                        {link.name}
-                      </button>
-                    ) : (
-                      <Link
-                        href="/?menu=open"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                      >
-                        {link.name}
-                      </Link>
-                    )
-                  ) : (
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                  {/* Subtle Divider */}
+                  <a
+                    href={link.href || "#"}
+                    onClick={(e) => handleMobileNav(e, link)}
+                    className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center cursor-pointer"
+                  >
+                    {link.name}
+                  </a>
                   {i < navLinks.length - 1 && (
                     <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
                   )}
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-6 w-full">
               <Link
                 href="https://wa.me/96800000000"
@@ -213,7 +219,9 @@ const Navbar = ({ onMenuClick }) => {
 
             <div className="mt-6 flex flex-col items-center gap-3 opacity-40">
               <div className="h-8 w-[1px] bg-gold/40" />
-              <span className="text-gold font-luxury text-xs tracking-[0.8em] uppercase">Oman</span>
+              <span className="text-gold font-luxury text-xs tracking-[0.8em] uppercase">
+                Oman
+              </span>
             </div>
           </div>
         </div>
