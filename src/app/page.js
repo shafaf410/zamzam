@@ -20,6 +20,7 @@ export default function Home() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Prevent scrolling when menu is open
     if (!isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -29,6 +30,7 @@ export default function Home() {
 
   // Cleanup on unmount & check query params to reopen menu
   useEffect(() => {
+    // Check if we came back from a category page and need to open the menu
     const params = new URLSearchParams(window.location.search);
     if (params.get("menu") === "open") {
       setIsMenuOpen(true);
@@ -43,9 +45,7 @@ export default function Home() {
   return (
     <main className="relative bg-black-pure">
       <LoadingScreen />
-      
       <Navbar onMenuClick={toggleMenu} />
-      
       <Hero onMenuClick={toggleMenu} />
       
       <div className="relative bg-maroon-dark overflow-hidden">
@@ -61,7 +61,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Menu Modal Drawer */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = ({ onMenuClick }) => {
@@ -14,7 +15,7 @@ const Navbar = ({ onMenuClick }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -22,20 +23,18 @@ const Navbar = ({ onMenuClick }) => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Menu", type: "button" },
-    { name: "Experience", href: "/experience" },
-    { name: "Contact", href: "/contact" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Contact", href: "/#location" },
   ];
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full transition-luxury pointer-events-auto",
-        isMobileMenuOpen ? "z-[9999]" : "z-50",
+        "fixed top-0 left-0 w-full z-50 transition-luxury",
         isScrolled 
           ? "bg-black-pure/95 backdrop-blur-2xl border-b border-gold/10 py-3 shadow-2xl" 
           : "bg-transparent py-4"
       )}
-      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
     >
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Left: Logo & Branding */}
@@ -61,7 +60,7 @@ const Navbar = ({ onMenuClick }) => {
           </Link>
         </div>
 
-        {/* Right: Desktop Links */}
+        {/* Right: Links with Improved Hierarchy & Spacing */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
@@ -114,9 +113,9 @@ const Navbar = ({ onMenuClick }) => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - High Contrast */}
         <button
-          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90 pointer-events-auto"
+          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
@@ -124,87 +123,123 @@ const Navbar = ({ onMenuClick }) => {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[9999] bg-black-pure flex flex-col items-center justify-between p-8 overflow-y-auto pointer-events-auto">
-          {/* Decorative Pattern Background */}
-          <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
-
-          {/* Close Trigger */}
-          <button
-            className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 p-4 z-[10000] cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Close Menu"
-          >
-            <X size={36} />
-          </button>
-
-          {/* Centered Navigation */}
-          <div className="relative z-10 flex flex-col items-center text-center w-full max-w-xs my-auto py-12 gap-8">
-            <div className="mb-4">
-              <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">
-                Zam Zam Mandi
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-6 w-full">
-              {navLinks.map((link, i) => (
-                <div key={link.name} className="w-full">
-                  {link.type === "button" ? (
-                    onMenuClick ? (
-                      <button
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          onMenuClick();
-                        }}
-                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
-                      >
-                        {link.name}
-                      </button>
-                    ) : (
-                      <Link
-                        href="/?menu=open"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                      >
-                        {link.name}
-                      </Link>
-                    )
-                  ) : (
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                  {i < navLinks.length - 1 && (
-                    <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 w-full">
-              <Link
-                href="https://wa.me/96800000000"
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black-pure/90 backdrop-blur-sm z-[100]"
+            />
+            <motion.div
+              key="mobile-menu-full-solid"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              style={{ backgroundColor: "#000000", opacity: 1 }}
+              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 overflow-hidden"
+            >
+              {/* Decorative Background Pattern */}
+              <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
+              
+              {/* Close Button - Forced High Contrast */}
+              <button 
+                className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 transition-all p-4 z-[10000]"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center px-12 py-4 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] active:scale-95 transition-all w-full border border-gold/20"
+                aria-label="Close Menu"
               >
-                Order Now
-              </Link>
-            </div>
+                <X size={36} />
+              </button>
+              
+              <div className="relative z-10 flex flex-col gap-8 sm:gap-10 items-center text-center w-full max-w-xs h-full justify-center">
+                {/* Branding Top */}
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6"
+                >
+                  <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">Zam Zam Mandi</span>
+                </motion.div>
 
-            <div className="mt-6 flex flex-col items-center gap-3 opacity-40">
-              <div className="h-8 w-[1px] bg-gold/40" />
-              <span className="text-gold font-luxury text-xs tracking-[0.8em] uppercase">
-                Oman
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+                <div className="flex flex-col gap-6 sm:gap-8 w-full">
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + i * 0.05 }}
+                      className="w-full"
+                    >
+                      {link.type === "button" ? (
+                        onMenuClick ? (
+                          <button
+                            onClick={() => {
+                              onMenuClick();
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
+                          >
+                            {link.name}
+                          </button>
+                        ) : (
+                          <Link
+                            href="/?menu=open"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                          >
+                            {link.name}
+                          </Link>
+                        )
+                      ) : (
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                        >
+                          {link.name}
+                        </Link>
+                      )}
+                      {/* Subtle Divider */}
+                      {i < navLinks.length - 1 && (
+                        <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-6" />
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-10 w-full"
+                >
+                  <Link
+                    href="https://wa.me/96800000000"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center px-12 py-5 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] shadow-[0_20px_60px_rgba(0,0,0,1)] active:scale-95 transition-all w-full border border-gold/20"
+                  >
+                    Order Now
+                  </Link>
+                </motion.div>
+
+                <motion.div 
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   transition={{ delay: 0.6 }}
+                   className="mt-10 flex flex-col items-center gap-4 opacity-40"
+                >
+                  <div className="h-10 w-[1px] bg-gold/40" />
+                  <span className="text-gold font-luxury text-sm tracking-[0.8em] uppercase">Oman</span>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
