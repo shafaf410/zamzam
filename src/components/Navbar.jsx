@@ -137,123 +137,87 @@ const Navbar = ({ onMenuClick }) => {
       </div>
 
       {/* Mobile Sidebar */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            key="mobile-menu-wrapper"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999]"
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[9999] bg-[#000000] flex flex-col items-center justify-between p-8 overflow-y-auto"
+        >
+          {/* Decorative Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
+          
+          {/* Close Button - Forced High Contrast */}
+          <button 
+            className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 p-4 z-[10000] cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Close Menu"
           >
-            {/* Backdrop */}
-            <div
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black-pure/90 backdrop-blur-sm pointer-events-auto"
-            />
-            {/* Panel */}
-            <div
-              style={{ backgroundColor: "#000000" }}
-              className="absolute inset-0 flex flex-col items-center justify-center p-6 overflow-hidden pointer-events-auto"
-            >
-              {/* Decorative Background Pattern */}
-              <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
-              
-              {/* Close Button - Forced High Contrast */}
-              <button 
-                className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 transition-all p-4 z-[10000] pointer-events-auto transform-gpu"
-                onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Close Menu"
-              >
-                <X size={36} />
-              </button>
-              
-              <div className="relative z-10 flex flex-col gap-8 sm:gap-10 items-center text-center w-full max-w-xs h-full justify-center">
-                {/* Branding Top */}
-                <motion.div 
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6"
-                >
-                  <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">Zam Zam Mandi</span>
-                </motion.div>
-
-                <div className="flex flex-col gap-6 sm:gap-8 w-full">
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 + i * 0.05 }}
-                      className="w-full"
-                    >
-                      {link.type === "button" ? (
-                        onMenuClick ? (
-                          <button
-                            onClick={() => {
-                              onMenuClick();
-                              setIsMobileMenuOpen(false);
-                            }}
-                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
-                          >
-                            {link.name}
-                          </button>
-                        ) : (
-                          <Link
-                            href="/?menu=open"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                          >
-                            {link.name}
-                          </Link>
-                        )
-                      ) : (
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="text-3xl sm:text-4xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                        >
-                          {link.name}
-                        </Link>
-                      )}
-                      {/* Subtle Divider */}
-                      {i < navLinks.length - 1 && (
-                        <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-6" />
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-10 w-full"
-                >
-                  <Link
-                    href="https://wa.me/96800000000"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center px-12 py-5 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] shadow-[0_20px_60px_rgba(0,0,0,1)] active:scale-95 transition-all w-full border border-gold/20"
-                  >
-                    Order Now
-                  </Link>
-                </motion.div>
-
-                <motion.div 
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   transition={{ delay: 0.6 }}
-                   className="mt-10 flex flex-col items-center gap-4 opacity-40"
-                >
-                  <div className="h-10 w-[1px] bg-gold/40" />
-                  <span className="text-gold font-luxury text-sm tracking-[0.8em] uppercase">Oman</span>
-                </motion.div>
-              </div>
+            <X size={36} />
+          </button>
+          
+          <div className="relative z-10 flex flex-col items-center text-center w-full max-w-xs my-auto py-12 gap-8">
+            {/* Branding Top */}
+            <div className="mb-4">
+              <span className="text-gold/60 font-luxury text-[12px] tracking-[0.6em] uppercase">Zam Zam Mandi</span>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            <div className="flex flex-col gap-6 w-full">
+              {navLinks.map((link, i) => (
+                <div key={link.name} className="w-full">
+                  {link.type === "button" ? (
+                    onMenuClick ? (
+                      <button
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setTimeout(() => {
+                            onMenuClick();
+                          }, 100);
+                        }}
+                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        href="/?menu=open"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                  {/* Subtle Divider */}
+                  {i < navLinks.length - 1 && (
+                    <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-6 w-full">
+              <Link
+                href="https://wa.me/96800000000"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center px-12 py-4 bg-maroon text-white rounded-full font-bold tracking-[0.5em] uppercase text-[10px] shadow-[0_20px_60px_rgba(0,0,0,0.8)] active:scale-95 transition-all w-full border border-gold/20"
+              >
+                Order Now
+              </Link>
+            </div>
+
+            <div className="mt-6 flex flex-col items-center gap-3 opacity-40">
+              <div className="h-8 w-[1px] bg-gold/40" />
+              <span className="text-gold font-luxury text-xs tracking-[0.8em] uppercase">Oman</span>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
