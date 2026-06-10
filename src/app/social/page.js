@@ -161,7 +161,7 @@ export default function SocialPage() {
         {/* OG Icon Buttons */}
         <div className="flex items-center justify-center gap-10 sm:gap-16">
           <motion.a
-            href="https://www.instagram.com/zamzammandi/"
+            href="https://www.instagram.com/zamzammandioman/"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}
