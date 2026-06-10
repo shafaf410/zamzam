@@ -41,7 +41,7 @@ export const menuData = {
       { name: "Mutton Mandhi", arabic: "لحم مندي", image: "/images/menu/mutton_mandi.jpg" },
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" },
       { name: "Mutton Madfoon", arabic: "لحم مدفون", image: "/images/menu/mutton_madfoon.jpg" },
-      { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_haneeth.png" },
+      { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_shuwa.png" },
       { name: "Mutton Mughalkal", arabic: "لحم مقلغل", image: "/images/food/mughalkal.png" }
     ]
   },

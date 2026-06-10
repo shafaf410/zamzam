@@ -129,7 +129,7 @@ export default function SocialPage() {
       </div>
 
       {/* ─── Hero Section: Social Connect ─── */}
-      <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 sm:px-12">
+      <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 sm:px-12 pt-24 md:pt-32">
         {/* Breadcrumbs */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -174,7 +174,7 @@ export default function SocialPage() {
           </motion.a>
 
           <motion.a
-            href="https://www.facebook.com/zamzammandii/"
+            href="https://www.facebook.com/zamzammandioman"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 30 }}

@@ -46,7 +46,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               className="text-3xl sm:text-5xl lg:text-6xl font-marcellus text-white mt-4 mb-6 sm:mb-8 leading-tight"
             >
-              Authenticity in <br className="hidden sm:block" /> Every <span className="text-maroon">Grain</span>
+              Authenticity in <br className="hidden sm:block" /> Every <span className="text-gold">Grain</span>
             </motion.h2>
             <p className="text-white/70 text-[14px] sm:text-lg mb-6 sm:mb-8 leading-relaxed font-sans font-light px-2 sm:px-0">
               Founded with a passion for preserving the true flavors of the Arabian Peninsula, Zam Zam Mandi has become a cornerstone of authentic dining in Oman.

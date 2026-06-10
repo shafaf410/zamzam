@@ -15,9 +15,21 @@ const Navbar = ({ onMenuClick }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open to prevent touch/scroll conflicts
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -30,11 +42,12 @@ const Navbar = ({ onMenuClick }) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-luxury",
+        "fixed top-0 left-0 w-full z-50 transition-luxury pointer-events-auto transform-gpu",
         isScrolled 
           ? "bg-black-pure/95 backdrop-blur-2xl border-b border-gold/10 py-3 shadow-2xl" 
           : "bg-transparent py-4"
       )}
+      style={{ transform: "translate3d(0,0,0)", backfaceVisibility: "hidden" }}
     >
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Left: Logo & Branding */}
@@ -115,7 +128,7 @@ const Navbar = ({ onMenuClick }) => {
 
         {/* Mobile Menu Button - High Contrast */}
         <button
-          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90"
+          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90 pointer-events-auto transform-gpu"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
@@ -132,7 +145,7 @@ const Navbar = ({ onMenuClick }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black-pure/90 backdrop-blur-sm z-[100]"
+              className="fixed inset-0 bg-black-pure/90 backdrop-blur-sm z-[100] pointer-events-auto"
             />
             <motion.div
               key="mobile-menu-full-solid"
@@ -141,14 +154,14 @@ const Navbar = ({ onMenuClick }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               style={{ backgroundColor: "#000000", opacity: 1 }}
-              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 overflow-hidden"
+              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 overflow-hidden pointer-events-auto"
             >
               {/* Decorative Background Pattern */}
               <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
               
               {/* Close Button - Forced High Contrast */}
               <button 
-                className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 transition-all p-4 z-[10000]"
+                className="absolute top-8 right-8 text-white hover:text-gold active:scale-90 transition-all p-4 z-[10000] pointer-events-auto transform-gpu"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="Close Menu"
               >
