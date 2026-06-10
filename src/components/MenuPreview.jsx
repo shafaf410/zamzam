@@ -40,14 +40,14 @@ const menuItems = [
     category: "Juices",
     title: "Pomegranate Juice",
     price: "1.500",
-    image: "/images/JUICES/POMEGRANATE JUICE.jpeg",
+    image: "/images/JUICES/pomegranate.jpg",
   },
   {
     id: 6,
     category: "Juices",
     title: "Lemon Mint",
     price: "1.200",
-    image: "/images/JUICES/LEMON MINT JUICE.jpeg",
+    image: "/images/JUICES/lemon mint.jpg",
   },
 ];
 

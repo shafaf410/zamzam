@@ -157,12 +157,18 @@ export const menuData = {
     id: "juices",
     title: "JUICES",
     subtitle: "عصائر",
-    coverImage: "/images/JUICES/POMEGRANATE JUICE.jpeg",
+    coverImage: "/images/JUICES/pomegranate.jpg",
     description: "Freshly squeezed juices prepared daily to perfectly complement your meal.",
     items: [
-      { name: "Lemon Mint Juice", arabic: "عصير ليمون نعناع", image: "/images/JUICES/LEMON MINT JUICE.jpeg" },
-      { name: "Mango Juice", arabic: "عصير مانجو", image: "/images/JUICES/MANGO JUICE.jpeg" },
-      { name: "Pomegranate Juice", arabic: "عصير رمان", image: "/images/JUICES/POMEGRANATE JUICE.jpeg" }
+      { name: "Avocado Juice", arabic: "عصير أفوكادو", image: "/images/JUICES/avacado.jpg" },
+      { name: "Carrot Juice", arabic: "عصير جزر", image: "/images/JUICES/carrot.jpg" },
+      { name: "Lemon Mint Juice", arabic: "عصير ليمون نعناع", image: "/images/JUICES/lemon mint.jpg" },
+      { name: "Mango Juice", arabic: "عصير مانجو", image: "/images/JUICES/mango.jpg" },
+      { name: "Orange Juice", arabic: "عصير برتقال", image: "/images/JUICES/orange.jpg" },
+      { name: "Passion Fruit Juice", arabic: "عصير باشون فروت", image: "/images/JUICES/passionfruit.jpg" },
+      { name: "Pineapple Juice", arabic: "عصير أناناس", image: "/images/JUICES/pineapple.jpg" },
+      { name: "Pomegranate Juice", arabic: "عصير رمان", image: "/images/JUICES/pomegranate.jpg" },
+      { name: "Watermelon Juice", arabic: "عصير بطيخ", image: "/images/JUICES/watermelon.jpg" }
     ]
   }
 };
@@ -230,6 +236,6 @@ export const menuCategories = [
     title: "JUICES",
     subtitle: "عصائر",
     label: "Fresh Refreshments",
-    image: "/images/JUICES/POMEGRANATE JUICE.jpeg",
+    image: "/images/JUICES/pomegranate.jpg",
   },
 ];

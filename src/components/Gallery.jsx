@@ -7,7 +7,7 @@ const images = [
   { src: "/images/MANDI/FULL CHICKEN MANDI WITH RICE.jpeg", alt: "Chicken Mandi" },
   { src: "/images/GRILLS/MIXED GRILL.jpeg", alt: "Mixed Grill" },
   { src: "/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg", alt: "Mutton Shuwa" },
-  { src: "/images/JUICES/MANGO JUICE.jpeg", alt: "Mango Juice" },
+  { src: "/images/JUICES/mango.jpg", alt: "Mango Juice" },
   { src: "/images/MANDI/HALF CHICKEN MADFOON WITH RICE.jpg", alt: "Madfoon" },
   { src: "/images/GRILLS/GRILLS - MUTTON TIKKA.jpeg", alt: "Mutton Tikka" },
 ];
