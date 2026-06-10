@@ -18,18 +18,6 @@ const Navbar = ({ onMenuClick }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body scroll lock logic
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
-
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -37,38 +25,6 @@ const Navbar = ({ onMenuClick }) => {
     { name: "Experience", href: "/#experience" },
     { name: "Contact", href: "/#location" },
   ];
-
-  // Helper for direct scroll/navigation
-  const handleMobileNav = (e, link) => {
-    if (link.type === "button") {
-      e.preventDefault();
-      setIsMobileMenuOpen(false);
-      if (onMenuClick) {
-        onMenuClick();
-      }
-      return;
-    }
-
-    if (link.href.startsWith("/#")) {
-      e.preventDefault();
-      setIsMobileMenuOpen(false);
-      const id = link.href.replace("/#", "");
-      
-      if (window.location.pathname === "/") {
-        const el = document.getElementById(id);
-        if (el) {
-          setTimeout(() => {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 100);
-        }
-      } else {
-        window.location.href = link.href;
-      }
-      return;
-    }
-
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <nav
@@ -194,13 +150,35 @@ const Navbar = ({ onMenuClick }) => {
             <div className="flex flex-col gap-6 w-full">
               {navLinks.map((link, i) => (
                 <div key={link.name} className="w-full">
-                  <a
-                    href={link.href || "#"}
-                    onClick={(e) => handleMobileNav(e, link)}
-                    className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center cursor-pointer"
-                  >
-                    {link.name}
-                  </a>
+                  {link.type === "button" ? (
+                    onMenuClick ? (
+                      <button
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          onMenuClick();
+                        }}
+                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        href="/?menu=open"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                   {i < navLinks.length - 1 && (
                     <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
                   )}
