@@ -112,7 +112,7 @@ const LoadingScreen = () => {
           {/* 6. Central Brand Presentation */}
           <div className="relative z-20 flex flex-col items-center justify-center">
             {/* Clean Logo Image Reveal */}
-            <div className="relative w-20 h-20 sm:w-28 sm:h-28 mb-6">
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 mb-6">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, filter: "brightness(0.7) blur(2px)" }}
                 animate={{ 
