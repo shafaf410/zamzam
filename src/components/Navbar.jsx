@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const Navbar = ({ onMenuClick }) => {
+const Navbar = ({ onMenuClick, onExperienceClick, onContactClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,8 +22,8 @@ const Navbar = ({ onMenuClick }) => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Menu", type: "button" },
-    { name: "Experience", href: "/#experience" },
-    { name: "Contact", href: "/#location" },
+    { name: "Experience", href: "/#experience", type: "experience" },
+    { name: "Contact", href: "/#location", type: "contact" },
   ];
 
   return (
@@ -64,9 +64,9 @@ const Navbar = ({ onMenuClick }) => {
         {/* Right: Desktop Links */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              link.type === "button" ? (
-                onMenuClick ? (
+            {navLinks.map((link) => {
+              if (link.type === "button") {
+                return onMenuClick ? (
                   <button
                     key={link.name}
                     onClick={onMenuClick}
@@ -84,8 +84,54 @@ const Navbar = ({ onMenuClick }) => {
                     {link.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
                   </Link>
-                )
-              ) : (
+                );
+              }
+
+              if (link.type === "experience") {
+                return onExperienceClick ? (
+                  <button
+                    key={link.name}
+                    onClick={onExperienceClick}
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href="/?experience=open"
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </Link>
+                );
+              }
+
+              if (link.type === "contact") {
+                return onContactClick ? (
+                  <button
+                    key={link.name}
+                    onClick={onContactClick}
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link cursor-pointer"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href="/?contact=open"
+                    className="relative text-[10px] md:text-[11px] font-luxury font-medium tracking-[0.4em] text-white/90 hover:text-gold uppercase transition-luxury group/link"
+                  >
+                    {link.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
+                  </Link>
+                );
+              }
+
+              return (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -94,8 +140,8 @@ const Navbar = ({ onMenuClick }) => {
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold/50 transition-all duration-500 group-hover/link:w-full" />
                 </Link>
-              )
-            ))}
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-6 ml-6 border-l border-white/10 pl-8">
@@ -148,42 +194,56 @@ const Navbar = ({ onMenuClick }) => {
             </div>
 
             <div className="flex flex-col gap-6 w-full">
-              {navLinks.map((link, i) => (
-                <div key={link.name} className="w-full">
-                  {link.type === "button" ? (
-                    onMenuClick ? (
-                      <button
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          onMenuClick();
-                        }}
-                        className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
-                      >
-                        {link.name}
-                      </button>
+              {navLinks.map((link, i) => {
+                const handleClick = () => {
+                  setIsMobileMenuOpen(false);
+                  if (link.type === "button") {
+                    if (onMenuClick) onMenuClick();
+                  } else if (link.type === "experience") {
+                    if (onExperienceClick) onExperienceClick();
+                  } else if (link.type === "contact") {
+                    if (onContactClick) onContactClick();
+                  }
+                };
+
+                const isButtonType = link.type === "button" || link.type === "experience" || link.type === "contact";
+
+                return (
+                  <div key={link.name} className="w-full">
+                    {isButtonType ? (
+                      ((link.type === "button" && onMenuClick) ||
+                       (link.type === "experience" && onExperienceClick) ||
+                       (link.type === "contact" && onContactClick)) ? (
+                        <button
+                          onClick={handleClick}
+                          className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full cursor-pointer"
+                        >
+                          {link.name}
+                        </button>
+                      ) : (
+                        <Link
+                          href={link.type === "button" ? "/?menu=open" : (link.type === "experience" ? "/?experience=open" : "/?contact=open")}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
+                        >
+                          {link.name}
+                        </Link>
+                      )
                     ) : (
                       <Link
-                        href="/?menu=open"
+                        href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
                       >
                         {link.name}
                       </Link>
-                    )
-                  ) : (
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-2xl sm:text-3xl font-marcellus text-white hover:text-gold transition-colors tracking-[0.2em] uppercase w-full block text-center"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                  {i < navLinks.length - 1 && (
-                    <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
-                  )}
-                </div>
-              ))}
+                    )}
+                    {i < navLinks.length - 1 && (
+                      <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-4" />
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-6 w-full">
