@@ -169,7 +169,7 @@ const Navbar = ({ onMenuClick }) => {
                 </motion.div>
 
                 <div className="flex flex-col gap-6 sm:gap-8 w-full">
-                  {navLinks.map((link, i) => (
+                  {[...navLinks, { name: "Social", href: "/social" }].map((link, i, arr) => (
                     <motion.div
                       key={link.name}
                       initial={{ opacity: 0, y: 20 }}
@@ -207,7 +207,7 @@ const Navbar = ({ onMenuClick }) => {
                         </Link>
                       )}
                       {/* Subtle Divider */}
-                      {i < navLinks.length - 1 && (
+                      {i < arr.length - 1 && (
                         <div className="h-[1px] w-6 bg-gold/20 mx-auto mt-6" />
                       )}
                     </motion.div>
