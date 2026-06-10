@@ -139,22 +139,23 @@ const Navbar = ({ onMenuClick }) => {
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+          <motion.div
+            key="mobile-menu-wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9999]"
+          >
+            {/* Backdrop */}
+            <div
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black-pure/90 backdrop-blur-sm z-[100] pointer-events-auto"
+              className="absolute inset-0 bg-black-pure/90 backdrop-blur-sm pointer-events-auto"
             />
-            <motion.div
-              key="mobile-menu-full-solid"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
+            {/* Panel */}
+            <div
               style={{ backgroundColor: "#000000" }}
-              className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 overflow-hidden pointer-events-auto"
+              className="absolute inset-0 flex flex-col items-center justify-center p-6 overflow-hidden pointer-events-auto"
             >
               {/* Decorative Background Pattern */}
               <div className="absolute inset-0 opacity-[0.05] bg-pattern-islamic pointer-events-none" />
@@ -249,8 +250,8 @@ const Navbar = ({ onMenuClick }) => {
                   <span className="text-gold font-luxury text-sm tracking-[0.8em] uppercase">Oman</span>
                 </motion.div>
               </div>
-            </motion.div>
-          </>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>
