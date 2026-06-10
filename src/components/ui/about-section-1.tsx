@@ -4,6 +4,7 @@ import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function AboutSection1() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -58,17 +59,18 @@ export default function AboutSection1() {
 
   return (
     <section
-      className="relative py-32 px-4 bg-black-pure overflow-hidden border-t border-white/5"
+      className="relative py-32 px-4 bg-maroon-dark overflow-hidden border-t border-white/5"
       ref={heroRef}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <img
+        <Image
           src="/images/pattern_bg_red.jpg"
           alt="Luxury Theme Background"
-          className="w-full h-full object-cover opacity-35"
+          fill
+          className="object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/95 via-[#000000]/70 to-[#000000]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A0006]/90 via-[#1A0006]/40 to-[#1A0006]/90" />
       </div>
       {/* SVG Clip Path Definitions */}
       <svg className="absolute -top-[999px] -left-[999px] w-0 h-0">
