@@ -27,9 +27,14 @@ const Contact = () => {
 
             <div className="space-y-8">
               <div className="flex gap-6 items-start group">
-                <div className="w-12 h-12 rounded-full glass-dark flex items-center justify-center text-gold group-hover:bg-maroon group-hover:text-white transition-all duration-300">
+                <a 
+                  href="https://www.google.com/maps/place/ZamZam+Mandi+Restaurant+Ruwi+%D9%85%D8%B7%D8%B9%D9%85+%D8%B2%D9%85%D8%B2%D9%85+%D8%A7%D9%84%D9%85%D9%86%D8%AF%D9%8I+%D8%B1%D9%88%D9%8I%E2%80%AD/@23.5946661,58.550766,17z/data=!3m1!4b1!4m6!3m5!1s0x3e91f9e8a89a0a69:0x49105cb7f0575bd3!8m2!3d23.5946661!4d58.550766!16s%2Fg%2F11j1hblb7k!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full glass-dark flex items-center justify-center text-gold group-hover:bg-maroon group-hover:text-white transition-all duration-300 flex-shrink-0 cursor-pointer"
+                >
                   <MapPin size={24} />
-                </div>
+                </a>
                 <div>
                   <h4 className="text-white font-bold mb-2">Location</h4>
                   <a 
