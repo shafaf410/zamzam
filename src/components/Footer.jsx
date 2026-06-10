@@ -58,16 +58,20 @@ const Footer = () => {
               <div className="flex items-start gap-4">
                 <MapPin size={18} className="text-gold mt-1 flex-shrink-0" />
                 <p className="text-white/40 text-sm leading-relaxed font-light">
-                  Sultan Qaboos St, Muscat, Oman
+                  Ruwi MBD, Way No 3505, Opp Oman Development Bank
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 <Phone size={18} className="text-gold flex-shrink-0" />
-                <p className="text-white/40 text-sm font-light">+968 24XXXXXX</p>
+                <p className="text-white/40 text-sm font-light">
+                  <a href="tel:+96890900763" className="hover:text-gold transition-colors">+968 9090 0763</a> / <a href="tel:+96890900764" className="hover:text-gold transition-colors">+968 9090 0764</a>
+                </p>
               </div>
               <div className="flex items-center gap-4">
                 <Mail size={18} className="text-gold flex-shrink-0" />
-                <p className="text-white/40 text-sm font-light">hospitality@zamzammandi.om</p>
+                <p className="text-white/40 text-sm font-light">
+                  <a href="mailto:zamzammandi@gmail.com" className="hover:text-gold transition-colors">zamzammandi@gmail.com</a>
+                </p>
               </div>
             </div>
           </div>

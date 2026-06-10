@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 const WhatsAppButton = () => {
   return (
     <motion.a
-      href="tel:+96824000000"
+      href="tel:+96890900763"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.05 }}

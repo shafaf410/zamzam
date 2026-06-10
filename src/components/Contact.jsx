@@ -43,7 +43,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="text-white/60 leading-relaxed hover:text-gold transition-colors duration-300 underline underline-offset-4 decoration-white/20 hover:decoration-gold"
                   >
-                    ZamZam Mandi Restaurant, Ruwi, Muscat, Sultanate of Oman
+                    Ruwi MBD, Way No 3505, Opp Oman Development Bank
                   </a>
                 </div>
               </div>
@@ -54,7 +54,11 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-2">Phone</h4>
-                  <p className="text-white/60">+968 2400 0000</p>
+                  <p className="text-white/60 flex flex-col sm:flex-row gap-1 sm:gap-3">
+                    <a href="tel:+96890900763" className="hover:text-gold transition-colors">+968 9090 0763</a>
+                    <span className="hidden sm:inline opacity-30">|</span>
+                    <a href="tel:+96890900764" className="hover:text-gold transition-colors">+968 9090 0764</a>
+                  </p>
                 </div>
               </div>
 
@@ -64,7 +68,19 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-2">Opening Hours</h4>
-                  <p className="text-white/60">Mon - Sun: 12:00 PM - 12:00 AM</p>
+                  <p className="text-white/60">Sunday to Saturday: 11:00 AM - 12:00 AM</p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start group">
+                <div className="w-12 h-12 rounded-full glass-dark flex items-center justify-center text-gold group-hover:bg-maroon group-hover:text-white transition-all duration-300">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold mb-2">Email</h4>
+                  <a href="mailto:zamzammandi@gmail.com" className="text-white/60 hover:text-gold transition-colors duration-300">
+                    zamzammandi@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
