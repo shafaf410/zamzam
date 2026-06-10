@@ -115,7 +115,10 @@ const Navbar = ({ onMenuClick }) => {
 
         {/* Mobile Menu Button - High Contrast */}
         <button
-          className="lg:hidden p-2 text-white hover:text-gold transition-colors active:scale-90"
+          className={cn(
+            "lg:hidden p-2 text-white hover:text-gold transition-all duration-300 active:scale-90",
+            isScrolled ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"
+          )}
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
