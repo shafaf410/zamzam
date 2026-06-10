@@ -61,6 +61,15 @@ export default function AboutSection1() {
       className="relative py-32 px-4 bg-black-pure overflow-hidden border-t border-white/5"
       ref={heroRef}
     >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <img
+          src="/images/pattern_bg_red.jpg"
+          alt="Luxury Theme Background"
+          className="w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/95 via-[#000000]/70 to-[#000000]/95" />
+      </div>
       {/* SVG Clip Path Definitions */}
       <svg className="absolute -top-[999px] -left-[999px] w-0 h-0">
         <defs>
@@ -164,23 +173,20 @@ export default function AboutSection1() {
         </TimelineContent>
       </div>
 
-      {/* Image Grid with Squiggle Clip Paths */}
-      <div className="max-w-6xl mx-auto grid grid-cols-4 gap-4 pt-20 lg:h-[26rem] md:h-[22rem] sm:h-[16rem] h-[14rem]">
+      {/* Image Grid with Circular Shapes */}
+      <div className="max-w-6xl mx-auto grid grid-cols-4 gap-4 sm:gap-6 pt-20">
         {/* Top Left Image */}
         <TimelineContent
           as="figure"
           animationNum={2}
           timelineRef={heroRef}
           customVariants={revealVariants}
-          className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/5"
-          style={{ clipPath: "url(#clip-squiggle)" }}
+          className="w-full aspect-square rounded-full overflow-hidden shadow-2xl border border-white/5 relative"
         >
           <img
             src="/images/MANDI/FULL CHICKEN MANDI WITH RICE_1.jpeg"
             alt="Authentic Mandi"
-            width={300}
-            height={400}
-            className="object-cover w-full h-full rotate-6 hover:scale-110 transition-transform duration-700"
+            className="object-cover w-full h-full hover:scale-110 transition-transform duration-700"
           />
         </TimelineContent>
 
@@ -190,15 +196,12 @@ export default function AboutSection1() {
           animationNum={3}
           timelineRef={heroRef}
           customVariants={revealVariants2}
-          className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/5"
-          style={{ clipPath: "url(#differentone16)" }}
+          className="w-full aspect-square rounded-full overflow-hidden shadow-2xl border border-white/5 relative"
         >
           <img
             src="/images/menu/mutton_mandi.jpg"
             alt="Mutton Mandi Platter"
-            width={300}
-            height={400}
-            className="object-cover w-full h-full -rotate-6 hover:scale-110 transition-transform duration-700"
+            className="object-cover w-full h-full hover:scale-110 transition-transform duration-700"
           />
         </TimelineContent>
 
@@ -208,15 +211,12 @@ export default function AboutSection1() {
           animationNum={4}
           timelineRef={heroRef}
           customVariants={revealVariants2}
-          className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/5"
-          style={{ clipPath: "url(#differentone8)" }}
+          className="w-full aspect-square rounded-full overflow-hidden shadow-2xl border border-white/5 relative"
         >
           <img
             src="/images/menu/mix_meat_platter.jpg"
             alt="Zam Zam Grills"
-            width={300}
-            height={400}
-            className="object-cover w-full h-full -rotate-6 hover:scale-110 transition-transform duration-700"
+            className="object-cover w-full h-full hover:scale-110 transition-transform duration-700"
           />
         </TimelineContent>
 
@@ -226,15 +226,12 @@ export default function AboutSection1() {
           animationNum={5}
           timelineRef={heroRef}
           customVariants={revealVariants2}
-          className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/5"
-          style={{ clipPath: "url(#clip-rect)" }}
+          className="w-full aspect-square rounded-full overflow-hidden shadow-2xl border border-white/5 relative"
         >
           <img
             src="/images/menu/kunafa.png"
             alt="Golden Kunafa Dessert"
-            width={300}
-            height={400}
-            className="object-cover w-full h-full rotate-6 hover:scale-110 transition-transform duration-700"
+            className="object-cover w-full h-full hover:scale-110 transition-transform duration-700"
           />
         </TimelineContent>
       </div>
