@@ -22,7 +22,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl font-luxury font-bold text-white mt-4 mb-12"
             >
-              Visit <span className="text-maroon">Us</span>
+              Visit <span className="text-gold">Us</span>
             </motion.h2>
 
             <div className="space-y-8">
