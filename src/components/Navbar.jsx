@@ -73,7 +73,8 @@ const Navbar = ({ onMenuClick }) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-luxury pointer-events-auto",
+        "fixed top-0 left-0 w-full transition-luxury pointer-events-auto",
+        isMobileMenuOpen ? "z-[9999]" : "z-50",
         isScrolled 
           ? "bg-black-pure/95 backdrop-blur-2xl border-b border-gold/10 py-3 shadow-2xl" 
           : "bg-transparent py-4"
