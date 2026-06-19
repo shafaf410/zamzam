@@ -65,7 +65,7 @@ export const menuData = {
       { name: "Fish Fillet With Rice", arabic: "فيليه سمك مع أرز", image: "/images/menu/FISH FILLET FRY WITH RICE.jpg" },
       { name: "Gheldar Fish With Rice", arabic: "سمك جيذر مع أرز", image: "/images/menu/GHEIDAR FISH WITH RICE.webp" },
       { name: "King Fish With Rice", arabic: "سمك كنعد مع أرز", image: "/images/menu/KING FISH WITH RICE.webp" },
-      { name: "Prawns With Rice", arabic: "روبيان مع أرز", image: "/images/menu/FISH FILLET GRILLED WITH RICE.jpg" } 
+      { name: "Prawns With Rice", arabic: "روبيان مع أرز", image: "/images/menu/prawns with rice.png" } 
     ]
   },
   specials: {

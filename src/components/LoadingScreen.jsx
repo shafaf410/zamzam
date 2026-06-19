@@ -4,15 +4,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+// Pseudo-random generator for consistent server/client hydration
+const seededRandom = (seed) => {
+  const x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+};
+
 // Generate static config for luxury drifting particles
 const particles = Array.from({ length: 22 }).map((_, i) => ({
   id: i,
-  x: `${Math.random() * 100}%`,
-  yStart: `${Math.random() * 50 + 50}%`,
-  yEnd: `${Math.random() * 20 + 10}%`,
-  size: Math.random() * 2 + 1.5,
-  delay: Math.random() * 1,
-  duration: Math.random() * 2.5 + 2,
+  x: `${seededRandom(i * 10) * 100}%`,
+  yStart: `${seededRandom(i * 10 + 1) * 50 + 50}%`,
+  yEnd: `${seededRandom(i * 10 + 2) * 20 + 10}%`,
+  size: seededRandom(i * 10 + 3) * 2 + 1.5,
+  delay: seededRandom(i * 10 + 4) * 1,
+  duration: seededRandom(i * 10 + 5) * 2.5 + 2,
 }));
 
 const LoadingScreen = () => {
