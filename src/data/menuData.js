@@ -27,7 +27,7 @@ export const menuData = {
         ]
       },
       { name: "Chicken Madfoon", arabic: "دجاج مدفون", image: "/images/food/HALF CHICKEN MADFOON WITH RICE.jpg" },
-      { name: "Chicken Mukalkal", arabic: "دجاج مقلغل", image: "/images/food/mughalkal.png" },
+      { name: "Chicken Mukalkal", arabic: "دجاج مقلغل", image: "/images/GRILLS/Chicken Mukalkal .jpeg" },
       { name: "Chicken Shuwa", arabic: "دجاج شواء", image: "/images/MANDI/HALF CHICKEN SHUWA WITH RICE.jpg" }
     ]
   },
@@ -113,14 +113,14 @@ export const menuData = {
     id: "grills",
     title: "GRILLS & RICE COMBO",
     subtitle: "كومبو مشاوي مع ارز",
-    coverImage: "/images/GRILLS/GRILLS - MIXED GRILL LARGE.png",
+    coverImage: "/images/GRILLS/cover photo for grill and rice.jpeg",
     description: "Premium cuts marinated to perfection and char-grilled over open flames.",
     items: [
-      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/food/chicken_tikka_with_rice.jpg" }, 
-      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/food/mutton_tikka_with_rice.jpg" }, 
-      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/food/chicken_kebab_with_rice.jpg" }, 
-      { name: "Mutton Kebab with Rice", arabic: "كباب لحم غنم مع أرز", image: "/images/GRILLS/GRILLS - MUTTON KEBAB.jpeg" },
-      { name: "Lamb Chops with Rice", arabic: "ريش غنم مع أرز", image: "/images/GRILLS/GRILLS - LAMB CHOPS.jpeg" }
+      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/GRILLS/CHCKEN TIKKA WITH RICE (GRILL AND RICE COMBO).jpeg" }, 
+      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/GRILLS/MUTTON TIKKA WITH RICE (GRILL AND RICE COMBO).jpeg" }, 
+      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/GRILLS/CHCKEN KEBAB WITH RICE (GRILL AND RICE COMBO).jpeg" }, 
+      { name: "Mutton Kebab with Rice", arabic: "كباب لحم غنم مع أرز", image: "/images/GRILLS/MUTTON KEBAB WITH RICE (GRILL AND RICE COMBO).jpeg" },
+      { name: "Lamb Chops with Rice", arabic: "ريش غنم مع أرز", image: "/images/GRILLS/LAMB CHOPS WITH RICE (GRILL AND RICE COMBO).jpeg" }
     ]
   },
   salads: {
@@ -225,7 +225,7 @@ export const menuCategories = [
     title: "GRILLS & RICE COMBO",
     subtitle: "كومبو مشاوي مع ارز",
     label: "Premium Grills",
-    image: "/images/GRILLS/GRILLS - MIXED GRILL LARGE.png",
+    image: "/images/GRILLS/cover photo for grill and rice.jpeg",
   },
   {
     id: "salads",
