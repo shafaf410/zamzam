@@ -24,8 +24,10 @@ const particles = Array.from({ length: 22 }).map((_, i) => ({
 const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const hasLoaded = sessionStorage.getItem("zamzam_loaded");
     if (hasLoaded) {
       setLoading(false);
@@ -39,6 +41,7 @@ const LoadingScreen = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  if (!mounted) return null;
   if (!isFirstLoad && !loading) return null;
 
   return (

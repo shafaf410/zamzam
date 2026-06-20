@@ -41,7 +41,7 @@ export const menuData = {
       { name: "Mutton Mandhi", arabic: "لحم مندي", image: "/images/menu/mutton_mandi.jpg" },
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" },
       { name: "Mutton Madfoon", arabic: "لحم مدفون", image: "/images/menu/mutton_madfoon.jpg" },
-      { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_shuwa.png" }
+      { name: "Mutton Shuwa", arabic: "لحم شواء", image: "/images/menu/mutton_shuwa.jpeg" }
     ]
   },
   beef: {
@@ -83,9 +83,9 @@ export const menuData = {
       { name: "Beef Haneeth", arabic: "حنيذ لحم بقر", image: "/images/menu/beef_haneeth.jpg" }, 
       { name: "Mutton Haneeth", arabic: "حنيذ لحم غنم", image: "/images/menu/mutton_haneeth.png" },
       { name: "Prawns Mandi", arabic: "مندي روبيان", image: "/images/menu/prawns_mandi.png" },
-      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/food/chicken_kebab_with_rice.jpg" },
-      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/food/chicken_tikka_with_rice.jpg" },
-      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/food/mutton_tikka_with_rice.jpg" }
+      { name: "Chicken Kebab with Rice", arabic: "كباب دجاج مع أرز", image: "/images/GRILLS/CHCKEN KEBAB WITH RICE (GRILL AND RICE COMBO).jpeg" },
+      { name: "Chicken Tikka with Rice", arabic: "تكة دجاج مع أرز", image: "/images/GRILLS/CHCKEN TIKKA WITH RICE (GRILL AND RICE COMBO).jpeg" },
+      { name: "Mutton Tikka with Rice", arabic: "تكة لحم غنم مع أرز", image: "/images/GRILLS/MUTTON TIKKA WITH RICE (GRILL AND RICE COMBO).jpeg" }
     ]
   },
   desserts: {
