@@ -2,8 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const About = () => {
+  const { language, isArabic } = useLanguage();
+  const t = translations[language].about;
+  const arabicStyle = isArabic ? { fontFamily: "var(--font-arabic)" } : {};
+
   return (
     <section id="about" className="py-16 sm:py-24 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -23,7 +29,7 @@ const About = () => {
                   className="object-cover object-[center_35%] scale-[1.4]"
                 />
               </div>
-              
+
               {/* Decorative Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -33,37 +39,44 @@ const About = () => {
             </motion.div>
           </div>
 
-          <div className="w-full lg:flex-1 text-center lg:text-left">
+          <div className={`w-full lg:flex-1 text-center lg:text-left ${isArabic ? "lg:text-right" : ""}`}>
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-sm font-bold"
+              style={isArabic ? { ...arabicStyle, letterSpacing: "0.15em" } : {}}
             >
-              Our Heritage
+              {t.label}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="text-3xl sm:text-5xl lg:text-6xl font-marcellus text-white mt-4 mb-6 sm:mb-8 leading-tight"
+              style={arabicStyle}
             >
-              Authenticity in <br className="hidden sm:block" /> Every <span className="text-gold">Grain</span>
+              {t.title} <br className="hidden sm:block" />
+              <span className="text-gold">{t.titleHighlight}</span>
             </motion.h2>
-            <p className="text-white/70 text-[14px] sm:text-lg mb-6 sm:mb-8 leading-relaxed font-sans font-light px-2 sm:px-0">
-              Founded with a passion for preserving the true flavors of the Arabian Peninsula, Zam Zam Mandi has become a cornerstone of authentic dining in Oman.
+            <p className="text-white/70 text-[14px] sm:text-lg mb-6 sm:mb-8 leading-relaxed font-sans font-light px-2 sm:px-0" style={arabicStyle}>
+              {t.body1}
             </p>
-            <p className="text-white/70 text-[14px] sm:text-lg mb-8 sm:mb-10 leading-relaxed font-sans font-light px-2 sm:px-0">
-              From our custom-built underground ovens to our hand-picked spice blends from the markets of Sana'a, every detail is designed to transport you to the heart of Arabia.
+            <p className="text-white/70 text-[14px] sm:text-lg mb-8 sm:mb-10 leading-relaxed font-sans font-light px-2 sm:px-0" style={arabicStyle}>
+              {t.body2}
             </p>
-            
-            <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-10">
+
+            <div className={`flex items-center justify-center gap-4 sm:gap-10 ${isArabic ? "lg:justify-end" : "lg:justify-start"}`}>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-marcellus text-gold">15+</div>
-                <div className="text-[8px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mt-1">Years of Tradition</div>
+                <div className="text-2xl sm:text-3xl font-marcellus text-gold">{t.stat1Value}</div>
+                <div className="text-[8px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mt-1" style={isArabic ? { ...arabicStyle, letterSpacing: "0.05em" } : {}}>
+                  {t.stat1Label}
+                </div>
               </div>
               <div className="w-[1px] h-10 bg-white/10" />
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-marcellus text-gold">100%</div>
-                <div className="text-[8px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mt-1">Natural Spices</div>
+                <div className="text-2xl sm:text-3xl font-marcellus text-gold">{t.stat2Value}</div>
+                <div className="text-[8px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mt-1" style={isArabic ? { ...arabicStyle, letterSpacing: "0.05em" } : {}}>
+                  {t.stat2Label}
+                </div>
               </div>
             </div>
           </div>

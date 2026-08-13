@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Saleha';
+  src: url('/fonts/Saleha.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-gold: #D4A437;
   --color-gold-light: #E8C76A;
@@ -16,6 +24,7 @@
   --font-cinzel: var(--font-cinzel);
   --font-marcellus: var(--font-marcellus);
   --font-sans: var(--font-inter);
+  --font-arabic: 'Saleha', var(--font-noto-arabic), Arial, sans-serif;
 
   --animate-float: float 10s ease-in-out infinite;
   --animate-shimmer: shimmer 2.5s infinite linear;
